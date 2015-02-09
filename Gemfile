@@ -43,3 +43,5 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
