@@ -17,3 +17,5 @@
 # Ignore IDE config files
 .idea
 atlassian-ide-plugin.xml
+
+/doc
