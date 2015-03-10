@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  # root 'welcome#index'
+
+  mount Upmin::Engine => '/admin'
+  root to: 'visitors#index'
+  devise_for :users
+  resources :users
 
   resources :articles do
     resources :comments

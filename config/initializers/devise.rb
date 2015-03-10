@@ -1,20 +1,10 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  # ==> LDAP Configuration 
-  # config.ldap_logger = true
-  # config.ldap_create_user = true
-  # config.ldap_update_password = true
-  # config.ldap_config = "#{Rails.root}/config/ldap.yml"
-  # config.ldap_check_group_membership = false
-  # config.ldap_check_attributes = false
-  # config.ldap_use_admin_to_bind = false
-  # config.ldap_ad_group_check = false
-  
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  config.secret_key = 'b863f1c3f92118147f9cb86aeafb5e3ca6a6165191ab4882a4ae7448e1709be5ed4ab3645379de77c29ff19a71cebf62bc93393f22dba30432555fdf4dbb9875'
+  config.secret_key = 'a09ff160a2710c0328e1f83adf5c7385fa1eec9770d65a52ac8793a1b03dfbc0768f94893477fbe6591f5cd035cc01b13fed3deda280d3a6eeab0049fd8d6896'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -39,7 +29,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  config.authentication_keys = [ :email ]
+  # config.authentication_keys = [ :email ]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -69,7 +59,7 @@ Devise.setup do |config|
   # given strategies, for example, `config.http_authenticatable = [:database]` will
   # enable it only for database authentication. The supported strategies are:
   # :database      = Support basic authentication with authentication key + password
-  config.http_authenticatable = true
+  # config.http_authenticatable = false
 
   # If http headers should be returned for AJAX requests. True by default.
   # config.http_authenticatable_on_xhr = true
@@ -105,7 +95,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = '7de2eb2ae314bd3ac888f160dfaa269ab2f0b65b777267cd8925737f4ccb3f83e5bd9a0338a97189287fd0eb367138f1e200b27a9c6ceb87c8effbabe2d3197b'
+  # config.pepper = '763744d17ed9537017512e2bc46883080237743970a6e07fab4df2d829ff604ec99cfdbb5a3b5dbf4e0446d9d6a54b6799d1cf700e7147c5e27e4ceccfa84252'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -134,7 +124,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  config.remember_for = 2.weeks
+  # config.remember_for = 2.weeks
 
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
@@ -155,7 +145,7 @@ Devise.setup do |config|
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
-  config.timeout_in = 4.hours
+  # config.timeout_in = 30.minutes
 
   # If true, expires auth token on session timeout.
   # config.expire_auth_token_on_timeout = false
@@ -210,7 +200,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  config.scoped_views = true
+  # config.scoped_views = false
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -232,7 +222,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :get
+  config.sign_out_via = :delete
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
