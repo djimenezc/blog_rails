@@ -21,8 +21,10 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'devise', '3.2.2'
+
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -42,6 +44,17 @@ group :development, :test do
 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', :require => 'sqlite3'
+
+  gem 'turn', '0.8.3', :require => false
+  gem 'shoulda', '3.5.0'
+  gem 'rspec-rails', '2.14.0'
+  gem 'simplecov', '0.8.2', :require => false
+  gem 'simplecov-rcov', '0.2.3'
+  gem 'nokogiri'
+  gem 'factory_girl_rails', '4.5.0'
+
+  gem 'brakeman', '2.6.2', :require => false
+  gem 'annotate', '2.6.5'
 end
 
 gem 'execjs'
