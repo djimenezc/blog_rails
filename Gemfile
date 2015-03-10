@@ -45,3 +45,5 @@ end
 
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
+
+gem 'redcarpet', '~> 3.1.2'
