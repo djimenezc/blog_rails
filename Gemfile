@@ -57,6 +57,7 @@ group :development, :test do
   gem 'annotate', '2.6.5'
 
   gem 'rake'
+  gem 'travis'
 end
 
 gem 'execjs'
