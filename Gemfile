@@ -55,6 +55,8 @@ group :development, :test do
 
   gem 'brakeman', '2.6.2', :require => false
   gem 'annotate', '2.6.5'
+
+  gem 'rake'
 end
 
 gem 'execjs'
@@ -65,4 +67,6 @@ gem 'redcarpet', '~> 3.1.2'
 group :production do
   gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.2'
+  gem 'unicorn'
+  gem 'newrelic_rpm'
 end
