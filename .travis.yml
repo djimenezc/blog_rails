@@ -20,3 +20,7 @@ deploy:
 cache:
   directories:
   - vendor/bundle
+
+notifications:
+  email:
+    - david.jimenez19@gmail.com
