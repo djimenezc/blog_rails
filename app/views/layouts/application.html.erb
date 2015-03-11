@@ -2,17 +2,34 @@
 <html>
 <head>
   <title>Blog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <script>
+
+      console.log('setting up configuration');
+
+      var config = {
+          version: '<%= Configuration.app_version %>',
+          git_version: '<%= Configuration.git_version %>'
+      }
+
+  </script>
 </head>
 <body>
 
 <%= render 'layouts/header' %>
-<%= yield %>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div class="jumbotron vertical-center">
+  <div class="container">
+    <%= yield %>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+  </div>
+</div>
 
 <%= render 'layouts/footer' %>
 
