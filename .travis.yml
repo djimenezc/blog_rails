@@ -10,6 +10,7 @@ before_install:
 script: bundle exec rake
 deploy:
   provider: heroku
+  app: rails-blog-tutorial
   api_key:
     secure: PTl4SeqAGAOl3NJD0MT11yg+pEkmHtwj0qirRdlNNJ08AgF6lThGe6N+dH3l3JcJRKjlp2Tgt3BtTyKlbejrHuR3QYqswgN5rbrThYVO2yOnteR4VcGso2NiPlIlWTTQb3+QqgMEgwgukOLQgan624DeD2Yt4C4cX+uxV4jQt2Q=
 cache:
