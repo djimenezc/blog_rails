@@ -26,8 +26,9 @@
     <%= yield %>
 
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+    <% unless alert.nil? %>
+        <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
   </div>
 </div>
 
