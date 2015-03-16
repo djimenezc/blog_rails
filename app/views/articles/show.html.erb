@@ -8,6 +8,11 @@
   <%= @article.text %>
 </p>
 
+<p>
+  <strong>Avatar:</strong>
+  <%= image_tag @article.avatar.url(:medium) %>
+</p>
+
 <h2>Comments</h2>
 <%= render @article.comments %>
 
