@@ -28,6 +28,7 @@ gem 'simple_form'
 
 gem 'bootstrap-sass'
 gem 'paperclip', '~> 4.2'
+gem 'fog'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

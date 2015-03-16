@@ -4,7 +4,7 @@ rvm:
 bundler_args: "--without production"
 bundler_args: --retry 3
 before_install:
-  bundle install;
+  travis_retry bundle install;
   bundle exec rake db:schema:load;
   bundle exec rake db:migrate
 
