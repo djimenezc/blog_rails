@@ -34,6 +34,5 @@ module Blog
     #     :fog_host => 'localhost'
     # }
 
-
   end
 end

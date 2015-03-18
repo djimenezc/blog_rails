@@ -27,8 +27,10 @@ gem 'upmin-admin'
 gem 'simple_form'
 
 gem 'bootstrap-sass'
+
 gem 'paperclip', '~> 4.2'
 gem 'fog'
+gem 'aws-sdk', '~> 1.5.7'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

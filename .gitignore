@@ -21,3 +21,5 @@ atlassian-ide-plugin.xml
 /doc
 /coverage
 # Gemfile.lock
+
+public/system
