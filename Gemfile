@@ -70,6 +70,10 @@ group :development, :test do
 
   gem 'rake'
   gem 'travis'
+
+  gem 'guard'
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
 end
 
 gem 'execjs'
