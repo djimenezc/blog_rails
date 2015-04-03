@@ -15,3 +15,15 @@ task :fetch_prices => :environment do
     product.update_attribute(:price, price)
   end
 end
+
+desc 'Get title with mechanize'
+
+task :import_list => :environment do
+  require 'mechanize'
+
+  agent = Mechanize.new
+  page = agent.get('http://stackoverflow.com/')
+
+  puts page.title
+
+end

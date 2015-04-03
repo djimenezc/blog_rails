@@ -38,7 +38,10 @@ gem 'font-awesome-rails'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+
 gem 'nokogiri'
+gem 'mechanize'
+gem 'screencap'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -64,7 +67,7 @@ group :development, :test do
   gem 'rspec-rails', '2.14.0'
   gem 'simplecov', '0.8.2', :require => false
   gem 'simplecov-rcov', '0.2.3'
-  gem 'nokogiri'
+  # gem 'nokogiri'
   gem 'factory_girl_rails', '4.5.0'
 
   gem 'brakeman', '2.6.2', :require => false

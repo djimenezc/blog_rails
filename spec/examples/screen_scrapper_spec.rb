@@ -3,18 +3,20 @@ require 'spec_helper'
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
+require 'mechanize'
+require 'screencap'
 
 describe ScreenScrapperService do
 
-  # it 'Read walmart title after a search' do
-  #
-  #   url = 'http://www.walmart.com/search/search-ng.do?search_constraint=0&ic=48_0&search_query=Batman&Find.x=0&Find.y=0&Find=Find'
-  #   doc = Nokogiri::HTML(open(url))
-  #
-  #   puts "Title: #{doc.at_css('title').text}"
-  #
-  #   doc.at_css('title').text.should eq 'Batman - Walmart.com'
-  # end
+  it 'Read walmart title after a search' do
+
+    url = 'http://www.walmart.com/search/search-ng.do?search_constraint=0&ic=48_0&search_query=Batman&Find.x=0&Find.y=0&Find=Find'
+    doc = Nokogiri::HTML(open(url))
+
+    puts "Title: #{doc.at_css('title').text}"
+
+    doc.at_css('title').text.should eq 'Batman - Walmart.com'
+  end
 
   it 'Get walmart item for batman search' do
 
@@ -34,10 +36,65 @@ describe ScreenScrapperService do
 
     html = Nokogiri.HTML(open(PAGE))
 
-    src  = html.at('#logo')['background-image']['url']
+    expect {
+      src = html.at('#logo')['background-image']['url']
 
-    File.open('foo.png', 'wb') do |f|
-      f.write(open(src).read)
+      File.open('foo.png', 'wb') do |f|
+        f.write(open(src).read)
+      end
+    }.to raise_error
+
+  end
+
+  it 'Following links' do
+    mechanize = Mechanize.new
+
+    page = mechanize.get('http://en.wikipedia.org/wiki/Main_Page')
+
+    link = page.link_with(text: 'Random article')
+
+    page = link.click
+
+    puts "Link: #{page.uri.to_s}"
+  end
+
+  it 'Filling in a form' do
+
+    mechanize = Mechanize.new
+
+    page = mechanize.get('https://www.gov.uk/')
+
+    form = page.forms.first
+
+    form['q'] = 'passport'
+
+    page = form.submit
+
+    page.search('#top-results h3').each do |h3|
+      puts "result: #{h3.text.strip}"
     end
   end
+
+  it 'Take a page screenshot' do
+
+    f = Screencap::Fetcher.new('http://google.com')
+    screenshot = f.fetch
+
+    screenshot.should_not be_nil
+  end
+
+  # it 'Take a page screenshot' do
+  #
+  #   f = Screencap::Fetcher.new('http://google.com')
+  #   screenshot = f.fetch(
+  #       :output => '~/my_directory.png', # don't forget the extension!
+  #       # optional:
+  #       :div => '.header', # selector for a specific element to take screenshot of
+  #       :width => 1024,
+  #       :height => 768,
+  #       :top => 0, :left => 0, :width => 100, :height => 100 # dimensions for a specific area
+  #   )
+  #
+  #   screenshot.should_not be_nil
+  # end
 end
