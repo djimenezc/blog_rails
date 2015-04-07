@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  get '/market/snapshot', :to => 'market#create'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
