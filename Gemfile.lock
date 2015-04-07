@@ -115,6 +115,8 @@ GEM
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
     fastercsv (1.5.5)
+    fastimage (1.6.8)
+      addressable (~> 2.3, >= 2.3.5)
     ffi (1.9.6)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
@@ -495,6 +497,7 @@ DEPENDENCIES
   devise
   execjs
   factory_girl_rails (= 4.5.0)
+  fastimage
   fog
   font-awesome-rails
   guard
