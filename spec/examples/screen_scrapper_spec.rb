@@ -78,7 +78,9 @@ describe ScreenScrapperService do
   it 'Take a page screenshot' do
 
     f = Screencap::Fetcher.new('http://google.com')
-    screenshot = f.fetch
+    screenshot = f.fetch(
+        :output => TMP_DIRECTORY + 'googleDotCom.jpg'
+    )
 
     screenshot.should_not be_nil
   end
