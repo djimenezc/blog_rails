@@ -91,8 +91,10 @@ test:
   sessions:
     default:
       database: blog_test
+      username: <%= ENV['USERNAME_MONGO'] || 'test' %>
+      password: <%= ENV['PASSWORD_MONGO'] || 'test' %>
       hosts:
-        - localhost:27017
+        - <%= ENV['DB_MONGO'] || 'localhost:27017' %>
       options:
         read: primary
         # In the test environment we lower the retries and retry interval to

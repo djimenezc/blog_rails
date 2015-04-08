@@ -2,6 +2,7 @@ require 'simplecov'
 require 'simplecov-rcov'
 require 'screencap'
 require 'fastimage'
+require 'database_cleaner'
 
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 SimpleCov.start 'rails' do
@@ -65,5 +66,21 @@ RSpec.configure do |config|
       system("rm #{TMP_DIRECTORY}/*.png")
       system("rm #{TMP_DIRECTORY}/*.jpg")
     end
+  end
+
+  # http://stackoverflow.com/questions/6583618/clean-out-or-reset-test-database-with-rspec-and-mongoid-on-rails-3
+  # config.use_transactional_fixtures = false
+
+  # config.before :each do
+  #   DatabaseCleaner.strategy = :truncation
+  #   DatabaseCleaner.start
+  # end
+  #
+  # config.after do
+  #   DatabaseCleaner.clean
+  # end
+
+  config.before(:each) do
+    Mongoid::Sessions.default.collections.select {|c| c.name !~ /system/ }.each(&:drop)
   end
 end

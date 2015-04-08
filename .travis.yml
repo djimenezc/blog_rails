@@ -8,6 +8,10 @@ before_install:
   bundle exec rake db:schema:load;
   bundle exec rake db:migrate
 
+env: DB_MONGO=ds061601.mongolab.com:61601
+     USERNAME_MONGO=test
+     PASSWORD_MONGO=test
+
 script: bundle exec rake
 deploy:
   provider: heroku

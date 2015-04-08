@@ -44,6 +44,13 @@ gem 'mechanize'
 gem 'screencap'
 gem 'fastimage'
 
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
+
+gem 'redcarpet', '~> 3.1.2'
+
+gem 'mongoid', '~> 4.0.0'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -62,6 +69,7 @@ group :development, :test do
 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', :require => 'sqlite3'
+  gem 'database_cleaner'
 
   gem 'turn', '0.8.3', :require => false
   gem 'shoulda', '3.5.0'
@@ -80,14 +88,8 @@ group :development, :test do
   gem 'guard'
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
+
 end
-
-gem 'execjs'
-gem 'therubyracer', :platforms => :ruby
-
-gem 'redcarpet', '~> 3.1.2'
-
-gem 'mongoid', '~> 4.0.0'
 
 group :production do
   gem 'pg',             '0.17.1'
