@@ -14,7 +14,7 @@ class ScreenScrapperService
     data[:rates]= get_marketwatch_quotes(html, '#overviewratespage .tickerrow')
     data[:futures]= get_marketwatch_quotes(html, '#overviewfuturespage .tickerrow')
 
-    StructFactory.instance.get_market.new('marketwatch', Date.new, data)
+    data
   end
 
   def get_investing_data
@@ -39,7 +39,11 @@ class ScreenScrapperService
 
       puts "#{market_name} - #{price} #{pips_change} #{percentage_chg}"
 
-      result[market_name] = StructFactory.instance.get_price.new(price, pips_change,percentage_chg)
+      result[market_name] = {
+          :price => price.to_f,
+          :pips_change => pips_change.to_f,
+          :percentage_chg => percentage_chg
+      }
     end
 
     result

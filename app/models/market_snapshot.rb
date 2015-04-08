@@ -1,6 +1,9 @@
 class MarketSnapshot
   include Mongoid::Document
+  include Mongoid::Timestamps::Created
+
   field :name, type: String
-  field :date, type: Date
-  field :market_quotes, type: Array
+  field :quotes, type: Hash
+  # embeds_many :quotes
+
 end

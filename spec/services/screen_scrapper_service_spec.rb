@@ -8,9 +8,8 @@ describe ScreenScrapperService do
 
     data = screen_scrapper_service.get_marketwatch_data
     data.should_not be_nil
-    data.name.should eq 'marketwatch'
-    data.data.should_not be_nil
-    data.data.length.should eq 6
-    data.data[:US].length.should eq 6
+    data.should_not be_nil
+    data.length.should eq 6
+    data[:US].length.should eq 6
   end
 end
