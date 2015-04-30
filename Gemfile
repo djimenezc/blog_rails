@@ -50,6 +50,7 @@ gem 'therubyracer', :platforms => :ruby
 gem 'redcarpet', '~> 3.1.2'
 
 gem 'mongoid', '~> 4.0.0'
+gem 'mail'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -88,6 +89,8 @@ group :development, :test do
   gem 'guard'
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
+
+  gem 'rest-client'
 
 end
 
