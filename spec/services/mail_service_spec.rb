@@ -12,6 +12,7 @@ describe MailService do
   it 'Send test message' do
 
     @mail.subject = 'Smtp test'
+
     mail_service.send_email @mail, 'smtp'
   end
 

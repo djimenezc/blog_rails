@@ -4,8 +4,17 @@ class MailService
 
   def initialize
 
+    options = { :address              => 'smtp.mailgum.org',
+                :port                 => 587,
+                :domain               => 'postmaster@sandbox1eec6e41421a40ac9224888687531caa.mailgun.org',
+                :user_name            => 'postmaster@sandbox1eec6e41421a40ac9224888687531caa.mailgun.org',
+                :password             => '1e520ef4ff9da060ebc82a7cb8c3a4b2',
+                :authentication       => 'plain',
+                :enable_starttls_auto => true
+    }
+
     Mail.defaults do
-      delivery_method :smtp, address: 'localhost', port: 1025
+      delivery_method :smtp, options
     end
 
     @from = 'David Sandbox <postmaster@sandbox1eec6e41421a40ac9224888687531caa.mailgun.org>'
