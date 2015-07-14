@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe ScreenScrapperService do
+describe MarketwatchService do
 
-  screen_scrapper_service = ScreenScrapperService.new
+  screen_scrapper_service = MarketwatchService.new
 
   it 'Get marketwatch Us market image' do
 

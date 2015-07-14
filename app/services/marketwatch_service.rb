@@ -1,4 +1,4 @@
-class ScreenScrapperService
+class MarketwatchService
 
   MARKETWATCH_URL= 'http://www.marketwatch.com'
 

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  get 'trading/index'
+  get 'trading/calendar'
+  get 'trading/weekly_calendar'
+  get 'trading/marketwatch'
+
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

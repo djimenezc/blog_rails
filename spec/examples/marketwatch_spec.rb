@@ -6,7 +6,7 @@ require 'open-uri'
 require 'mechanize'
 require 'screencap'
 
-describe ScreenScrapperService do
+describe MarketwatchService do
 
   it 'Read walmart title after a search' do
 

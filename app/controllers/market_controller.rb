@@ -2,7 +2,8 @@ class MarketController < ApplicationController
 
   def initialize
 
-    @screen_scrapper_service = ScreenScrapperService.new
+    @marketwatch_service = MarketwatchService.new
+    @calendar_service = CalendarService.new
     super
   end
 
@@ -11,7 +12,7 @@ class MarketController < ApplicationController
     @market_snapshot = MarketSnapshot.new
 
     @market_snapshot.name = 'marketwatch'
-    @market_snapshot.quotes = @screen_scrapper_service.get_marketwatch_data
+    @market_snapshot.quotes = @marketwatch_service.get_marketwatch_data
 
     @market_snapshot.save!
 
