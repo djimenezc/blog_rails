@@ -48,6 +48,7 @@ describe MarketwatchService do
 
   it 'Following links' do
     mechanize = Mechanize.new
+    mechanize.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     page = mechanize.get('http://en.wikipedia.org/wiki/Main_Page')
 
@@ -92,9 +93,9 @@ describe MarketwatchService do
         :output => TMP_DIRECTORY + 'googleContent.jpg', # don't forget the extension!
         # optional:
         :div => '#chartImg', # selector for a specific element to take screenshot of
-        # :width => 1024,
-        # :height => 768,
-        # :top => 0, :left => 0, :width => 100, :height => 100 # dimensions for a specific area
+    # :width => 1024,
+    # :height => 768,
+    # :top => 0, :left => 0, :width => 100, :height => 100 # dimensions for a specific area
     )
 
     screenshot.should_not be_nil
@@ -103,9 +104,9 @@ describe MarketwatchService do
         :output => TMP_DIRECTORY + 'googleContent2.jpg', # don't forget the extension!
         # optional:
         :div => '#section3', # selector for a specific element to take screenshot of
-        # :width => 1024,
-        # :height => 768,
-        # :top => 0, :left => 0, :width => 100, :height => 100 # dimensions for a specific area
+    # :width => 1024,
+    # :height => 768,
+    # :top => 0, :left => 0, :width => 100, :height => 100 # dimensions for a specific area
     )
 
     screenshot.should_not be_nil
