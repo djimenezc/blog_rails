@@ -1,3 +1,5 @@
+include 'ApplicationPolicy'
+
 class TradingPolicy < ApplicationPolicy
 
 def index?
