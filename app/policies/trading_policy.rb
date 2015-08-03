@@ -1,4 +1,4 @@
-include 'ApplicationPolicy'
+# include 'ApplicationPolicy'
 
 class TradingPolicy < ApplicationPolicy
 
