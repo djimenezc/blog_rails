@@ -58,7 +58,7 @@ gem 'mail'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
+group :development, :test, :development_postgres do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug'
 
@@ -68,8 +68,6 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', :require => 'sqlite3'
   gem 'database_cleaner'
 
   gem 'turn', '0.8.3', :require => false
@@ -94,8 +92,16 @@ group :development, :test do
 
 end
 
+group :development_postgres, :production do
+  gem 'pg', '0.17.1'
+end
+
+group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', :require => 'sqlite3'
+end
+
 group :production do
-  gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.2'
   gem 'unicorn'
   gem 'newrelic_rpm'

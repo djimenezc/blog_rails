@@ -63,7 +63,7 @@ module Profiler__
 
     def initialize(klass, mid)
       super(klass, mid)
-      self.hash = Struct.instance_method(:hash).bind(self).call
+      self.hash = Struct.instance_method(:hash).bind(self).createAdminUser
     end
 
     def to_s
