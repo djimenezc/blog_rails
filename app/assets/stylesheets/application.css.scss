@@ -14,6 +14,19 @@
  *= require_self
  */
 
+$app-primary-bg-color: #333;
+$app-secondary-bg-color: #3e3e3e;
+$app-tertiary-bg-color: #666;
+$app-tertiary-bg-hover-color: #818181;
+$app-quaternary-bg-color: #999;
+
+$app-body-font-primary-color: #fff;
+$app-body-font-secondary-color: #999;
+
+$app-primary-accent-color: #00ACDB;
+$app-primary-accent-hover-color: #00c8ff;
+$app-primary-accent-click-color: #0081a4;
+
 /*
  *= require froala_editor.min.css
  *= require froala_style.min.css
@@ -21,17 +34,37 @@
  *= require themes/dark.min.css
  */
 
+html, body {
+  height: 100%;
+  color: $app-body-font-primary-color;
+}
+
+.special, .special .jumbotron {
+  height: 100%;
+
+  background-color: $app-tertiary-bg-color;
+}
+
 body {
-//  background-color: #1B2136;
-//  color: #f5f5f5;
+  //  background-color: #1B2136;
+  //  color: #f5f5f5;
 }
 
 header {
   height: 40px;
+  .navbar-default {
+    background-color: $app-primary-bg-color;
+    color: $app-body-font-primary-color;
+  }
+}
+
+footer.footer {
+  background-color: $app-primary-bg-color;
+  color: $app-body-font-primary-color;
 }
 
 .vertical-center {
-  min-height: 90%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 90%; /* Fallback for browsers do NOT support vh unit */
   min-height: 90vh; /* These two lines are counted as one :-)       */
 
   display: flex;
