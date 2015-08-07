@@ -108,8 +108,6 @@ class MarketwatchService
 
   def get_index_quote(html)
 
-    result = Hash.new
-
     market_name = html.at_css('.headerWithInfoBox').text
     market_snapshot = html.css('#quotes_summary_current_data .inlineblock > span')
 
@@ -123,7 +121,8 @@ class MarketwatchService
     analysis_table = html.at_css('#techStudiesInnerBoxRightBottom')
     quotes_summary_secondary = html.at_css('#quotes_summary_secondary_data')
 
-    result[market_name] = {
+    result = {
+        :market_name => market_name,
         :price => html.at_css('#last_last').text.to_s.gsub(',', '.').to_f,
         :pips_change => pips_change,
         :percentage_chg => market_snapshot[3].text,

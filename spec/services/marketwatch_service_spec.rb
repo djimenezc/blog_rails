@@ -28,7 +28,7 @@ describe MarketwatchService do
     data.should_not be_nil
     data.should_not be_nil
     data.length.should eq 2
-    data[:sp500].length.should eq 10
-    data[:dow].length.should eq 10
+    data[:sp500].length.should eq 12
+    data[:dow].length.should eq 12
   end
 end
