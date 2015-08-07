@@ -37,17 +37,13 @@ $app-primary-accent-click-color: #0081a4;
 html, body {
   height: 100%;
   color: $app-body-font-primary-color;
+  margin-bottom: 0px;
 }
 
 .special, .special .jumbotron {
   height: 100%;
-
   background-color: $app-tertiary-bg-color;
-}
-
-body {
-  //  background-color: #1B2136;
-  //  color: #f5f5f5;
+  margin-bottom: 0px;
 }
 
 header {
@@ -61,6 +57,7 @@ header {
 footer.footer {
   background-color: $app-primary-bg-color;
   color: $app-body-font-primary-color;
+  bottom: inherit;
 }
 
 .vertical-center {
@@ -83,3 +80,7 @@ footer.footer {
   background-color: transparent;
 }
 
+.container.content {
+  background-color: $app-secondary-bg-color;
+  margin: 0 20px;
+}

@@ -2,9 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-table{
+table {
   border: 1px solid black;
   table-layout: fixed;
   width: 200px;
@@ -21,3 +19,13 @@ th, td {
   padding-left: 10px;
 }
 
+.marketwatch-cell-text {
+  padding-left: 10px;
+}
+
+.marketwatch-product-cell {
+  background-color: transparent;
+  padding-left: 20px;
+  text-transform: uppercase;
+
+}
