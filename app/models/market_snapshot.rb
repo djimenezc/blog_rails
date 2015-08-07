@@ -4,6 +4,7 @@ class MarketSnapshot
 
   field :name, type: String
   field :quotes, type: Hash
+  field :investing, type: Hash
   # embeds_many :quotes
 
 end

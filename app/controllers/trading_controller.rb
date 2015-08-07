@@ -28,9 +28,9 @@ class TradingController < ApplicationController
 
     @time = Time.now.to_s(:datetime_military)
 
-
     @market_snapshot = MarketSnapshot.new
     @market_snapshot.name = 'marketwatch.com'
     @market_snapshot.quotes = @marketwatch_service.get_marketwatch_data
+    @market_snapshot.investing = @marketwatch_service.get_investing_data
   end
 end
