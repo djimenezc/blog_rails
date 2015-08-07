@@ -12,10 +12,12 @@
           </td>
           <td style="width: 80%;">
             <table style="border-color: white; width: 100%">
-              <th class="marketwatch-header-text">Market</th>
-              <th class="marketwatch-header-text">Price</th>
-              <th class="marketwatch-header-text">Pips</th>
-              <th class="marketwatch-header-text">Percentage</th>
+              <% if key == 'US' %>
+                  <th class="marketwatch-header-text">Market</th>
+                  <th class="marketwatch-header-text">Price</th>
+                  <th class="marketwatch-header-text">Pips</th>
+                  <th class="marketwatch-header-text">Percentage</th>
+              <% end %>
               <% market.each do |key, market| %>
                   <tr>
                     <td class="marketwatch-cell-text"><%= key %></td>

@@ -32,5 +32,6 @@ class TradingController < ApplicationController
     @market_snapshot.name = 'marketwatch.com'
     @market_snapshot.quotes = @marketwatch_service.get_marketwatch_data
     @market_snapshot.investing = @marketwatch_service.get_investing_data
+    @market_snapshot.indices = @marketwatch_service.get_indices_detail
   end
 end
