@@ -1,3 +1,23 @@
 // Place all the styles related to the trading controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+table{
+  border: 1px solid black;
+  table-layout: fixed;
+  width: 200px;
+}
+
+th, td {
+  border: 1px solid black;
+  overflow: hidden;
+  width: 100px;
+}
+
+.marketwatch-header-text {
+  background-color: darkorange;
+  padding-left: 10px;
+}
+

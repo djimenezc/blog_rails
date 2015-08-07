@@ -33,16 +33,18 @@ class MarketwatchService
     html.css(selector).each do |item|
 
       market_name = item.at_css('a').text
-      price = item.at_css('.price.bgLast').text
-      pips_change = item.at_css('.change').text
-      percentage_chg = item.at_css('.changepercent').text
-
-      puts "#{market_name} - #{price} #{pips_change} #{percentage_chg}"
+      pips_change = item.at_css('.change').text.to_s.gsub(',', '.').to_f
+      price_semaphore = if pips_change > 0 then
+                          'green'
+                        else
+                          (pips_change == 0 ? 'transparent' : 'red')
+                        end
 
       result[market_name] = {
-          :price => price.to_f,
-          :pips_change => pips_change.to_f,
-          :percentage_chg => percentage_chg
+          :price => item.at_css('.price.bgLast').text.to_s.gsub(',', '.').to_f,
+          :pips_change => pips_change,
+          :percentage_chg => item.at_css('.changepercent').text,
+          :price_semaphore => price_semaphore
       }
     end
 
