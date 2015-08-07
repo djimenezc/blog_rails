@@ -84,3 +84,9 @@ footer.footer {
   background-color: $app-secondary-bg-color;
   margin: 0 20px;
 }
+
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  /* color: #333; */
+  background-color: $app-tertiary-bg-hover-color;
+}
