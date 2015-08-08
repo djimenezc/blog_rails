@@ -1,20 +1,17 @@
 class CalendarService
 
-  CALENDAR_URL= 'http://ec.forexprostools.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&countries=25,32,6,37,72,22,17,39,14,10,35,43,56,36,110,11,26,12,4,5&calType=week&timeZone=58&lang=1'
+  CALENDAR_URL= 'http://ec.forexprostools.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&timeZone=58&lang=1'
 
+  def get_weekly_calendar_data(time_frame = 'thisWeek', calType='week')
 
-  def get_weekly_calendar_data
+    html = Nokogiri.HTML(open(get_calendar_url_relevant_countries(time_frame, calType)))
 
-    html = Nokogiri.HTML(open(CALENDAR_URL))
-    data = Hash.new
-
-    data['us'] = get_calendar_quotes(html, '#overviewuspage .tickerrow')
-
+    get_calendar_quotes(html)
   end
 
   private
 
-  def get_calendar_quotes(html, country)
+  def get_calendar_quotes(html)
 
     result = Hash.new
 
@@ -31,20 +28,52 @@ class CalendarService
       actual = item.parent.at_css('.act').text
       forecast = item.parent.at_css('.fore').text
       previous = item.parent.at_css('.prev').text
+      date = DateTime.parse(item.parent.attr('event_timestamp')).to_date
 
+      if result[date].nil? then
+        result[date] = {
+            :date => date,
+            :events => []
+        }
+      end
 
-      result[market_name] = {
-          :country => market_name,
-          :time => time,
-          :sentiment_level => sentiment,
-          :event => event,
-          actual => actual,
-          forecast => forecast,
-          previous => previous
-      }
+      result[date][:events].push({
+                                            :country => market_name,
+                                            :date => date,
+                                            :time => time,
+                                            :sentiment_level => sentiment,
+                                            :event => event,
+                                            :actual => actual,
+                                            :forecast => forecast,
+                                            :previous => previous
+                                        })
     end
 
     result
+  end
+
+  private
+
+  def get_calendar_time_frame_params(time_frame, calType)
+
+    result = ''
+
+    unless time_frame.nil?
+      result.concat "&calType=#{calType}"
+    end
+
+    unless time_frame.nil?
+
+      result.concat "&timeFrame=#{time_frame}"
+    end
+
+    result
+  end
+
+  def get_calendar_url_relevant_countries(time_frame, calType)
+
+    CALENDAR_URL + '&countries='+ InvestingCountryCodes.get_short_list_countries_codes(',') + get_calendar_time_frame_params(time_frame, calType)
+
   end
 
 end

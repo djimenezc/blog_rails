@@ -14,14 +14,20 @@ class TradingController < ApplicationController
 
   def calendar
 
-
   end
 
   def weekly_calendar
+
     # authorize User
-    @calendar_service.get_weekly_calendar_data
 
+    time_frame = 'week'
+    cal_type = 'week'
 
+    unless params[:timeFrame].nil? then
+      time_frame = params[:timeFrame]
+    end
+
+    @calendar_service.get_weekly_calendar_data(time_frame, cal_type)
   end
 
   def marketwatch
