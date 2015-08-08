@@ -1,2 +1,68 @@
 <h1>Trading calendar</h1>
 
+<div id="data_grid">
+
+  <div>
+    Time Frame:
+    <form id="calendar-form" action="calendar">
+      <select id="select-time-frame" name="time-frame">
+        <option value="thisWeek" selected>This Week</option>
+        <option value="nextWeek">Next Week</option>
+        <option value="today">Today</option>
+        <option value="tomorrow">Tomorrow</option>
+        <option value="yesterday">Yesterday</option>
+      </select>
+      <input type="submit"/>
+    </form>
+  </div>
+
+  <script type="text/javascript">
+      $('#select-time-frame').change(function () {
+
+          console.log('select-time-frame changed to ' + this.value);
+
+          var form = document.getElementById('calendar-form')
+          form.action = 'calendar';
+          form.submit();
+      });
+  </script>
+
+  <table style="border-color: white; width: 100%">
+    <caption>Market data from investing.com at <%= @time %> from <%= @from %> to <%= @to %></caption>
+
+    <% @calendar_snapshot.each do |date, event| %>
+        <tr>
+          <td class="marketwatch-product-cell" style="">
+            <%= date %>
+          </td>
+          <td style="width: 80%;">
+
+            <table style="border-color: white; width: 100%">
+              <% if @first_iteration %>
+                  <% @first_iteration = false %>
+                  <th class="marketwatch-header-text">Country</th>
+                  <th class="marketwatch-header-text">Time</th>
+                  <th class="marketwatch-header-text">Sentiment Level</th>
+                  <th class="marketwatch-header-text">Event</th>
+                  <th class="marketwatch-header-text">Actual</th>
+                  <th class="marketwatch-header-text">Forecast</th>
+                  <th class="marketwatch-header-text">Previous</th>
+              <% end %>
+
+              <% event.each do |event_fields| %>
+                  <tr>
+                    <% event_fields.each do |key, value| %>
+                        <td class="marketwatch-cell-text" name="<%= key %>"><%= value %></td>
+                    <% end %>
+                  </tr>
+              <% end %>
+
+            </table>
+          </td>
+        </tr>
+    <% end %>
+
+  </table>
+</div>
+
+

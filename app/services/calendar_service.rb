@@ -31,15 +31,12 @@ class CalendarService
       date = DateTime.parse(item.parent.attr('event_timestamp')).to_date
 
       if result[date].nil? then
-        result[date] = {
-            :date => date,
-            :events => []
-        }
+        result[date] = []
       end
 
-      result[date][:events].push({
+      result[date].push({
                                             :country => market_name,
-                                            :date => date,
+                                            # :date => date,
                                             :time => time,
                                             :sentiment_level => sentiment,
                                             :event => event,
@@ -68,6 +65,11 @@ class CalendarService
     end
 
     result
+  end
+
+  def get_from_to_range
+    # dateFrom:2015-08-10
+    # dateTo:2015-08-11
   end
 
   def get_calendar_url_relevant_countries(time_frame, calType)

@@ -22,7 +22,7 @@ class InvestingCountryCodes
   GBP = {:code => 4, name => 'UK'}
 
   def self.get_short_list_countries
-    [USD, EUR, FRA, GER, ITL, JPY, SPN, CHF, GBP]
+    [USD, EUR, FRA, GER, ITL, JPY, SPN, CHF, GBP,CNY]
   end
 
   def self.get_short_list_countries_codes(separator=nil)
