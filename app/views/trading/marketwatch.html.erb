@@ -2,65 +2,98 @@
 
 <div id="data_grid">
 
-  <table style="border-color: white; width: 100%">
-    <caption>Market data from <%= @market_snapshot.name %> at <%= @time %></caption>
+  <!--<table style="border-color: white; width: 100%">-->
+    <!--<caption>Market data from <%= @market_snapshot.name %> at <%= @time %></caption>-->
 
-    <% @market_snapshot.quotes.each do |key, market| %>
-        <tr>
-          <td class="marketwatch-product-cell" style="">
-            <%= key %>
-          </td>
-          <td style="width: 80%;">
-            <table style="border-color: white; width: 100%">
-              <% if key == 'US' %>
-                  <th class="marketwatch-header-text">Market</th>
-                  <th class="marketwatch-header-text">Price</th>
-                  <th class="marketwatch-header-text">Pips</th>
-                  <th class="marketwatch-header-text">Percentage</th>
-              <% end %>
-              <% market.each do |key, market| %>
-                  <tr>
-                    <td class="marketwatch-cell-text"><%= key %></td>
-                    <td class="marketwatch-cell-text"><%= market[:price] %></td>
-                    <td class="marketwatch-cell-text"><%= market[:pips_change] %></td>
-                    <td class="marketwatch-cell-text semaphore-<%= market[:price_semaphore] %>"><%= market[:percentage_chg] %></td>
-                  </tr>
-              <% end %>
+    <!--<% @market_snapshot.quotes.each do |key, market| %>-->
+        <!--<tr>-->
+          <!--<td class="marketwatch-product-cell" style="">-->
+            <!--<%= key %>-->
+          <!--</td>-->
+          <!--<td style="width: 80%;">-->
+            <!--<table style="border-color: white; width: 100%">-->
+              <!--<% if key == 'US' %>-->
+                  <!--<th class="marketwatch-header-text">Market</th>-->
+                  <!--<th class="marketwatch-header-text">Price</th>-->
+                  <!--<th class="marketwatch-header-text">Pips</th>-->
+                  <!--<th class="marketwatch-header-text">Percentage</th>-->
+              <!--<% end %>-->
+              <!--<% market.each do |key, market| %>-->
+                  <!--<tr>-->
+                    <!--<td class="marketwatch-cell-text"><%= key %></td>-->
+                    <!--<td class="marketwatch-cell-text"><%= market[:price] %></td>-->
+                    <!--<td class="marketwatch-cell-text"><%= market[:pips_change] %></td>-->
+                    <!--<td class="marketwatch-cell-text semaphore-<%= market[:price_semaphore] %>"><%= market[:percentage_chg] %></td>-->
+                  <!--</tr>-->
+              <!--<% end %>-->
 
-            </table>
-          </td>
-        </tr>
-    <% end %>
+            <!--</table>-->
+          <!--</td>-->
+        <!--</tr>-->
+    <!--<% end %>-->
 
-  </table>
+  <!--</table>-->
 
-  <h3 style="text-align: center;">Investing.com</h3>
+  <!--<h3 style="text-align: center;">Investing.com</h3>-->
+
+  <!--<table style="border-color: white; width: 100%">-->
+    <!--<caption>Market data from investing at <%= @time %></caption>-->
+
+    <!--<% @market_snapshot.investing.each do |key, market| %>-->
+        <!--<tr>-->
+          <!--<td class="marketwatch-product-cell" style="">-->
+            <!--<%= key %>-->
+          <!--</td>-->
+          <!--<td style="width: 80%;">-->
+            <!--<table style="border-color: white; width: 100%">-->
+              <!--<th class="marketwatch-header-text">Market</th>-->
+              <!--<th class="marketwatch-header-text">Price</th>-->
+              <!--<th class="marketwatch-header-text">Pips</th>-->
+              <!--<th class="marketwatch-header-text">Percentage</th>-->
+              <!--<% market.each do |key, market| %>-->
+                  <!--<tr>-->
+                    <!--<td class="marketwatch-cell-text"><%= key %></td>-->
+                    <!--<td class="marketwatch-cell-text"><%= market[:price] %></td>-->
+                    <!--<td class="marketwatch-cell-text"><%= market[:pips_change] %></td>-->
+                    <!--<td class="marketwatch-cell-text semaphore-<%= market[:price_semaphore] %>"><%= market[:percentage_chg] %></td>-->
+                  <!--</tr>-->
+              <!--<% end %>-->
+
+            <!--</table>-->
+          <!--</td>-->
+        <!--</tr>-->
+    <!--<% end %>-->
+
+  <!--</table>-->
+
+  <h3 style="text-align: center;">Indices detail</h3>
 
   <table style="border-color: white; width: 100%">
     <caption>Market data from investing at <%= @time %></caption>
-
-    <% @market_snapshot.investing.each do |key, market| %>
+    <th class="marketwatch-header-text">Market</th>
+    <th class="marketwatch-header-text">Price</th>
+    <th class="marketwatch-header-text">Pips</th>
+    <th class="marketwatch-header-text">Percentage</th>
+    <th class="marketwatch-header-text">Prev Close</th>
+    <th class="marketwatch-header-text">Open</th>
+    <th class="marketwatch-header-text">Day Range</th>
+    <th class="marketwatch-header-text">Summary</th>
+    <th class="marketwatch-header-text">Moving Average</th>
+    <th class="marketwatch-header-text">Technical Indicator</th>
+    <th class="marketwatch-header-text">RSI</th>
+    <% @market_snapshot.indices.each do |key, market| %>
         <tr>
-          <td class="marketwatch-product-cell" style="">
-            <%= key %>
-          </td>
-          <td style="width: 80%;">
-            <table style="border-color: white; width: 100%">
-              <th class="marketwatch-header-text">Market</th>
-              <th class="marketwatch-header-text">Price</th>
-              <th class="marketwatch-header-text">Pips</th>
-              <th class="marketwatch-header-text">Percentage</th>
-              <% market.each do |key, market| %>
-                  <tr>
-                    <td class="marketwatch-cell-text"><%= key %></td>
-                    <td class="marketwatch-cell-text"><%= market[:price] %></td>
-                    <td class="marketwatch-cell-text"><%= market[:pips_change] %></td>
-                    <td class="marketwatch-cell-text semaphore-<%= market[:price_semaphore] %>"><%= market[:percentage_chg] %></td>
-                  </tr>
-              <% end %>
-
-            </table>
-          </td>
+          <td class="marketwatch-product-cell"><%= market[:market_name] %></td>
+          <td class="marketwatch-product-cell"><%= market[:price] %></td>
+          <td class="marketwatch-product-cell"><%= market[:pips_change] %></td>
+          <td class="marketwatch-product-cell semaphore-<%= market[:price_semaphore] %>"><%= market[:percentage_chg] %></td>
+          <td class="marketwatch-product-cell"><%= market[:prev_close] %></td>
+          <td class="marketwatch-product-cell"><%= market[:open] %></td>
+          <td class="marketwatch-product-cell"><%= market[:day_range] %></td>
+          <td class="marketwatch-product-cell semaphore-<%= get_action_color(market[:summary]) %>"><%= market[:summary] %></td>
+          <td class="marketwatch-product-cell semaphore-<%= get_action_color(market[:moving_average]) %>"><%= market[:moving_average] %></td>
+          <td class="marketwatch-product-cell semaphore-<%= get_action_color(market[:technical_indicator]) %>"><%= market[:technical_indicator] %></td>
+          <td class="marketwatch-product-cell semaphore-<%= get_action_color(market[:rsi][:action]) %>"><%= market[:rsi][:value] + ' - '+ market[:rsi][:action]%></td>
         </tr>
     <% end %>
 

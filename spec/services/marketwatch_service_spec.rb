@@ -27,7 +27,7 @@ describe MarketwatchService do
     data = screen_scrapper_service.get_indices_detail
     data.should_not be_nil
     data.should_not be_nil
-    data.length.should eq 2
+    data.length.should eq 8
     data[:sp500].length.should eq 12
     data[:dow].length.should eq 12
   end

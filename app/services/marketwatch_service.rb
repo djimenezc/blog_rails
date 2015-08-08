@@ -5,6 +5,12 @@ class MarketwatchService
   INVESTING_URL= 'http://www.investing.com'
   SP500_URL = 'http://www.investing.com/indices/us-spx-500-futures-technical' + DEFAULT_PERIOD
   DOW_URL = 'http://www.investing.com/indices/us-30-futures-technical' + DEFAULT_PERIOD
+  NQ_URL = 'http://www.investing.com/indices/nq-100-futures-technical' + DEFAULT_PERIOD
+  DAX_URL = 'http://www.investing.com/indices/germany-30-technical' + DEFAULT_PERIOD
+  IBEX_URL = 'http://www.investing.com/indices/spain-35-technical' + DEFAULT_PERIOD
+  CAC40_URL = 'http://www.investing.com/indices/france-40-technical' + DEFAULT_PERIOD
+  FTSE_URL = 'http://www.investing.com/indices/uk-100-technical' + DEFAULT_PERIOD
+  EURO_URL = 'http://www.investing.com/indices/eu-stocks-50-futures-technical' + DEFAULT_PERIOD
 
   def get_marketwatch_data
 
@@ -45,9 +51,12 @@ class MarketwatchService
 
     data[:sp500] = get_index_quote Nokogiri.HTML(open(SP500_URL))
     data[:dow] = get_index_quote Nokogiri.HTML(open(DOW_URL))
-    # data[:nq] = get_index_quote Nokogiri.HTML(open(DOW_URL))
-    # data[:dax] = get_index_quote Nokogiri.HTML(open(DOW_URL))
-    # data[:ibex] = get_index_quote Nokogiri.HTML(open(DOW_URL))
+    data[:nq] = get_index_quote Nokogiri.HTML(open(NQ_URL))
+    data[:dax] = get_index_quote Nokogiri.HTML(open(DAX_URL))
+    data[:ibex] = get_index_quote Nokogiri.HTML(open(IBEX_URL))
+    data[:cac40] = get_index_quote Nokogiri.HTML(open(CAC40_URL))
+    data[:ftse] = get_index_quote Nokogiri.HTML(open(FTSE_URL))
+    data[:euro] = get_index_quote Nokogiri.HTML(open(EURO_URL))
 
     data
   end
@@ -120,6 +129,8 @@ class MarketwatchService
 
     analysis_table = html.at_css('#techStudiesInnerBoxRightBottom')
     quotes_summary_secondary = html.at_css('#quotes_summary_secondary_data')
+    moving_avg_span = analysis_table.at_css('.studySummaryTable:nth-child(2)').at_css('.studySummaryTableCol2 > span')
+    technical_indicator_span = analysis_table.at_css('.studySummaryTable.bottom').at_css('.studySummaryTableCol2 > span')
 
     result = {
         :market_name => market_name,
@@ -131,8 +142,8 @@ class MarketwatchService
         :open => quotes_summary_secondary.at_css('ul > li:nth-child(2) > span:nth-child(2)').text,
         :day_range => quotes_summary_secondary.at_css('ul > li:nth-child(3) > span:nth-child(2)').text,
         :summary => analysis_table.at_css('.studySummaryOval').text,
-        :moving_average => analysis_table.at_css('.studySummaryTable').at_css('.studySummaryTableCol2 > span > span').text,
-        :technical_indicator => analysis_table.at_css('.studySummaryTable.bottom').at_css('.studySummaryTableCol2 > span > span').text,
+        :moving_average => moving_avg_span.at_css('span').nil? ? moving_avg_span.at_css('b').text : moving_avg_span.at_css('span').text,
+        :technical_indicator => technical_indicator_span.at_css('span').nil? ? technical_indicator_span.at_css('b').text : technical_indicator_span.at_css('span').text,
         :rsi => {
             :value => html.at_css('.technicalIndicatorsTbl #pair_0 > td:nth-child(2)').text,
             :action => html.at_css('.technicalIndicatorsTbl #pair_0 > td:nth-child(3)').text
