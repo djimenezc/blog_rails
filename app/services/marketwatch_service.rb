@@ -20,9 +20,9 @@ class MarketwatchService
     data[:us]= get_marketwatch_quotes(html, '#overviewuspage .tickerrow')
     data[:eu]= get_marketwatch_quotes(html, '#overvieweuropepage .tickerrow')
     data[:asia]= get_marketwatch_quotes(html, '#overviewasiapage .tickerrow')
-    data[:fx]= get_marketwatch_quotes(html, '#overviewfxpage .tickerrow')
+    # data[:fx]= get_marketwatch_quotes(html, '#overviewfxpage .tickerrow')
     data[:rates]= get_marketwatch_quotes(html, '#overviewratespage .tickerrow')
-    data[:futures]= get_marketwatch_quotes(html, '#overviewfuturespage .tickerrow')
+    # data[:futures]= get_marketwatch_quotes(html, '#overviewfuturespage .tickerrow')
 
     data
   end
@@ -34,8 +34,8 @@ class MarketwatchService
     row_selector = '.genTbl.openTbl.quotesSideBlockTbl.collapsedTbl tr'
 
     data[:indices]= get_investing_quotes(html, '#QBS_2_inner ' + row_selector)
-    data[:commodities]= get_investing_quotes(html, '#QBS_1_inner '+ row_selector)
-    data[:forex]= get_investing_quotes(html, '#QBS_3_inner '+ row_selector)
+    data[:forex]= get_investing_quotes(html, '#QBS_1_inner '+ row_selector)
+    data[:commodities]= get_investing_quotes(html, '#QBS_3_inner '+ row_selector)
     data[:bonds]= get_investing_quotes(html, '#QBS_4_inner '+ row_selector)
 
     data
