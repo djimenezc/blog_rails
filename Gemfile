@@ -90,6 +90,8 @@ group :development, :test, :development_postgres do
 
   gem 'rest-client'
 
+  gem 'meta_request'
+
 end
 
 group :development_postgres, :production do
