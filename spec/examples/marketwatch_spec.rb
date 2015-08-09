@@ -48,10 +48,12 @@ describe MarketwatchService do
 
   it 'Following links' do
     mechanize = Mechanize.new
+    # noinspection RubyResolve
     mechanize.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     page = mechanize.get('http://en.wikipedia.org/wiki/Main_Page')
 
+    # noinspection RubyResolve
     link = page.link_with(text: 'Random article')
 
     page = link.click

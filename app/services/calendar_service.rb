@@ -2,7 +2,7 @@ class CalendarService
 
   CALENDAR_URL= 'http://ec.forexprostools.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&timeZone=58&lang=1'
 
-  def get_weekly_calendar_data(time_frame = 'thisWeek', calType='week', impact)
+  def get_weekly_calendar_data(time_frame = 'thisWeek', calType='week', impact = [InvestingImpactCodes.get_codes[:HIGH_IMPACT][:text]])
 
     html = Nokogiri.HTML(open(get_calendar_url_relevant_countries(time_frame, calType)))
 
