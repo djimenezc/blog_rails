@@ -25,7 +25,7 @@ class TradingController < ApplicationController
       time_frame = params[:timeFrame]
     end
 
-    @calendar_snapshot = @calendar_service.get_weekly_calendar_data(time_frame, cal_type)
+    @calendar_snapshot = @calendar_service.get_weekly_calendar_data(time_frame, cal_type, impact)
     @from = '22'
     @to = '233'
     @time_frame_options = build_time_frame_options time_frame

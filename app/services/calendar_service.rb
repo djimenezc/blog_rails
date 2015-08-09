@@ -2,20 +2,22 @@ class CalendarService
 
   CALENDAR_URL= 'http://ec.forexprostools.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&timeZone=58&lang=1'
 
-  def get_weekly_calendar_data(time_frame = 'thisWeek', calType='week')
+  def get_weekly_calendar_data(time_frame = 'thisWeek', calType='week', impact)
 
     html = Nokogiri.HTML(open(get_calendar_url_relevant_countries(time_frame, calType)))
 
-    get_calendar_quotes(html)
+    get_calendar_quotes(html, impact)
   end
 
   private
 
-  def get_calendar_quotes(html)
+  def get_calendar_quotes(html, impact)
 
     result = Hash.new
 
-    selector = '#ecEventsTable > tbody > tr > td.sentiment[title="High Volatility Expected"]'
+    selector = "#ecEventsTable > tbody > tr > #{build_impact_event_selector(impact)}"
+
+    # selector = '#ecEventsTable > tbody > tr > td.sentiment[title="High Volatility Expected"]'
 
     html.css(selector).each do |item|
 
@@ -35,15 +37,34 @@ class CalendarService
       end
 
       result[date].push({
-                                            :country => market_name,
-                                            # :date => date,
-                                            :time => time,
-                                            :sentiment_level => sentiment,
-                                            :event => event,
-                                            :actual => actual,
-                                            :forecast => forecast,
-                                            :previous => previous
-                                        })
+                            :country => market_name,
+                            # :date => date,
+                            :time => time,
+                            :sentiment_level => sentiment,
+                            :event => event,
+                            :actual => actual,
+                            :forecast => forecast,
+                            :previous => previous
+                        })
+    end
+
+    result
+  end
+
+  def build_impact_event_selector(impact)
+
+    first_iteration1 = true
+    result = ''
+
+    impact.each do |element|
+
+      if first_iteration1
+        first_iteration1 = false
+      else
+        result = result + ','
+      end
+
+      result = result + 'td.sentiment[title="' + element+ '"]'
     end
 
     result

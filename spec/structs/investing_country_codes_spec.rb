@@ -7,7 +7,7 @@ describe InvestingCountryCodes do
 
     country_list = InvestingCountryCodes.get_short_list_countries_codes
     country_list.should_not be_nil
-    country_list.length.should eq 9
+    country_list.length.should eq 10
     country_list.should include 5
   end
 
