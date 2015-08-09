@@ -18,7 +18,8 @@ class TradingController < ApplicationController
     set_time_parameter
 
     time_frame = params['time-frame'].nil? ? 'thisWeek' : params['time-frame']
-    cal_type = 'week'
+    impact = params[:impact_levels].nil? ? [InvestingImpactCodes.get_codes[:HIGH_IMPACT][:text]] : params[:impact_levels]
+    cal_type = time_frame.include?('thisWeek') || time_frame.include?('nextWeek') ||time_frame.include?('lastWeek') ? 'week' : 'day'
 
     unless params[:timeFrame].nil? then
       time_frame = params[:timeFrame]
@@ -28,10 +29,10 @@ class TradingController < ApplicationController
     @from = '22'
     @to = '233'
     @time_frame_options = build_time_frame_options time_frame
+    @impact_options = build_impact_options impact
 
     @first_iteration = true
   end
-
 
   def weekly_calendar
 
@@ -51,6 +52,26 @@ class TradingController < ApplicationController
   end
 
   private
+
+  def build_impact_options(impact_list)
+
+    [{
+         :value => InvestingImpactCodes.get_codes[:HIGH_IMPACT][:text],
+         :text => InvestingImpactCodes.get_codes[:HIGH_IMPACT][:text],
+         :name => 'HIGH_IMPACT',
+         :checked => impact_list.include?(InvestingImpactCodes.get_codes[:HIGH_IMPACT][:text]) ? true : false
+     }, {
+         :value => InvestingImpactCodes.get_codes[:MODERATE_IMPACT][:text],
+         :text => InvestingImpactCodes.get_codes[:MODERATE_IMPACT][:text],
+         :name => 'MODERATE_IMPACT',
+         :checked => impact_list.include?(InvestingImpactCodes.get_codes[:MODERATE_IMPACT][:text]) ? true : false
+     }, {
+         :value => InvestingImpactCodes.get_codes[:LOW_IMPACT][:text],
+         :text => InvestingImpactCodes.get_codes[:LOW_IMPACT][:text],
+         :name => 'LOW_IMPACT',
+         :checked => impact_list.include?(InvestingImpactCodes.get_codes[:LOW_IMPACT][:text]) ? true : false
+     }]
+  end
 
   def set_time_parameter
     @time = Time.now.to_s(:datetime_military)

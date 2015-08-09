@@ -17,7 +17,6 @@ describe CalendarService do
     data.should_not be_nil
     data.should_not be_nil
     data.length.should be > 2
-
   end
 
   it 'Get investing weekly calendar next week' do
@@ -26,7 +25,14 @@ describe CalendarService do
     data.should_not be_nil
     data.should_not be_nil
     data.length.should be > 2
+  end
 
+  it 'Get investing weekly calendar last week' do
+
+    data = screen_scrapper_service.get_weekly_calendar_data('last', 'week')
+    data.should_not be_nil
+    data.should_not be_nil
+    data.length.should be > 2
   end
 
   it 'Get investing weekly calendar today' do
@@ -34,7 +40,6 @@ describe CalendarService do
     data = screen_scrapper_service.get_weekly_calendar_data('today', 'day')
     data.should_not be_nil
     data.should_not be_nil
-    data.length.should be > 2
 
   end
 
@@ -43,16 +48,12 @@ describe CalendarService do
     data = screen_scrapper_service.get_weekly_calendar_data('tomorrow', 'day')
     data.should_not be_nil
     data.should_not be_nil
-    data.length.should be > 2
-
   end
 
-  it 'Get investing weekly calendar tomorrow' do
+  it 'Get investing weekly calendar yesterday' do
 
     data = screen_scrapper_service.get_weekly_calendar_data('yesterday', 'day')
     data.should_not be_nil
     data.should_not be_nil
-    data.length.should be > 2
-
   end
 end

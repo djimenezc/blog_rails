@@ -13,18 +13,27 @@
                     <% end %>><%= time_frame_option[:text] %></option>
         <% end %>
       </select>
+
+      <% @impact_options.each do |impact| %>
+
+          <input type="checkbox" name="impact_levels[]" value="<%= impact[:value] %>"
+                 <% if impact[:checked] %> checked
+                 <% end %>> <%= impact[:text] %>
+      <% end %>
+
     </form>
   </div>
 
   <script type="text/javascript">
-      $('#select-time-frame').change(function () {
+      var submit_form = function () {
 
           console.log('select-time-frame changed to ' + this.value);
 
-          var form = document.getElementById('calendar-form')
-          form.action = 'calendar';
-          form.submit();
-      });
+          document.getElementById('calendar-form').submit();
+      };
+
+      $('#select-time-frame').change(submit_form);
+      $('input[name="impact_levels[]"]').change(submit_form);
   </script>
 
   <table style="border-color: white; width: 100%">
