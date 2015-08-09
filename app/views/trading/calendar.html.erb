@@ -6,13 +6,13 @@
     Time Frame:
     <form id="calendar-form" action="calendar">
       <select id="select-time-frame" name="time-frame">
-        <option value="thisWeek" selected>This Week</option>
-        <option value="nextWeek">Next Week</option>
-        <option value="today">Today</option>
-        <option value="tomorrow">Tomorrow</option>
-        <option value="yesterday">Yesterday</option>
+
+        <% @time_frame_options.each do |time_frame_option| %>
+            <option value="<%= time_frame_option[:value] %>"
+                    <% if time_frame_option[:selected] %>selected
+                    <% end %>><%= time_frame_option[:text] %></option>
+        <% end %>
       </select>
-      <input type="submit"/>
     </form>
   </div>
 
