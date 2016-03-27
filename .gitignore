@@ -24,3 +24,9 @@ atlassian-ide-plugin.xml
 
 public/system
 dist
+
+chef/cookbooks
+chef/tmp
+chef/Cheffile.lock
+.idea
+.vagrant
