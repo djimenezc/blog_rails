@@ -14,6 +14,8 @@ class MarketwatchService
 
   def get_marketwatch_data
 
+    # FIXME page changed and the selectors don't work anymore
+
     html = Nokogiri.HTML(open(MARKETWATCH_URL))
     data = Hash.new
 
@@ -33,10 +35,10 @@ class MarketwatchService
     data = Hash.new
     row_selector = '.genTbl.openTbl.quotesSideBlockTbl.collapsedTbl tr'
 
-    data[:indices]= get_investing_quotes(html, '#QBS_2_inner ' + row_selector)
-    data[:forex]= get_investing_quotes(html, '#QBS_1_inner '+ row_selector)
-    data[:commodities]= get_investing_quotes(html, '#QBS_3_inner '+ row_selector)
-    data[:bonds]= get_investing_quotes(html, '#QBS_4_inner '+ row_selector)
+    data[:indices]= get_investing_quotes(html, '#QBS_2_inner' + row_selector)
+    data[:forex]= get_investing_quotes(html, '#QBS_1_inner'+ row_selector)
+    data[:commodities]= get_investing_quotes(html, '#QBS_3_inner'+ row_selector)
+    data[:bonds]= get_investing_quotes(html, '#QBS_4_inner'+ row_selector)
 
     data
   end
@@ -67,23 +69,28 @@ class MarketwatchService
 
     result = Hash.new
 
+
     html.css(selector).each do |item|
 
-      market_name = item.at_css('.left.bold.first.noWrap').at_css('a').text
+      item_title_node = item.at_css('.left.bold.first.noWrap')
 
-      pips_change = item.at_css('.chg').text.to_s.gsub(',', '.').to_f
-      price_semaphore = if pips_change > 0 then
-                          'green'
-                        else
-                          (pips_change == 0 ? 'transparent' : 'red')
-                        end
+      if item_title_node != nil
+        market_name = item_title_node.at_css('a').text
 
-      result[market_name] = {
-          :price => item.at_css('.lastNum').text.to_s.gsub(',', '.').to_f,
-          :pips_change => pips_change,
-          :percentage_chg => item.at_css('.chgPer').text,
-          :price_semaphore => price_semaphore
-      }
+        pips_change = item.at_css('.chg').text.to_s.gsub(',', '.').to_f
+        price_semaphore = if pips_change > 0 then
+                            'green'
+                          else
+                            (pips_change == 0 ? 'transparent' : 'red')
+                          end
+
+        result[market_name] = {
+            :price => item.at_css('.lastNum').text.to_s.gsub(',', '.').to_f,
+            :pips_change => pips_change,
+            :percentage_chg => item.at_css('.chgPer').text,
+            :price_semaphore => price_semaphore
+        }
+      end
     end
 
     result
@@ -127,10 +134,10 @@ class MarketwatchService
                         (pips_change == 0 ? 'transparent' : 'red')
                       end
 
-    analysis_table = html.at_css('#techStudiesInnerBoxRightBottom')
+    analysis_table = html.at_css('#techStudiesInnerWrap')
     quotes_summary_secondary = html.at_css('#quotes_summary_secondary_data')
-    moving_avg_span = analysis_table.at_css('.studySummaryTable:nth-child(2)').at_css('.studySummaryTableCol2 > span')
-    technical_indicator_span = analysis_table.at_css('.studySummaryTable.bottom').at_css('.studySummaryTableCol2 > span')
+    moving_avg_span = analysis_table.at_css('.summaryTableLine:nth-child(2)').at_css('span:nth-child(2)')
+    technical_indicator_span = analysis_table.at_css('.summaryTableLine:nth-child(3)').at_css('span:nth-child(2)')
 
     result = {
         :market_name => market_name,
@@ -141,9 +148,9 @@ class MarketwatchService
         :prev_close => quotes_summary_secondary.at_css('ul > li > span:nth-child(2)').text,
         :open => quotes_summary_secondary.at_css('ul > li:nth-child(2) > span:nth-child(2)').text,
         :day_range => quotes_summary_secondary.at_css('ul > li:nth-child(3) > span:nth-child(2)').text,
-        :summary => analysis_table.at_css('.studySummaryOval').text,
-        :moving_average => moving_avg_span.at_css('span').nil? ? moving_avg_span.at_css('b').text : moving_avg_span.at_css('span').text,
-        :technical_indicator => technical_indicator_span.at_css('span').nil? ? technical_indicator_span.at_css('b').text : technical_indicator_span.at_css('span').text,
+        :summary => analysis_table.at_css('.summary > span').text,
+        :moving_average => moving_avg_span.at_css('span').text,
+        :technical_indicator => technical_indicator_span.at_css('span').text,
         :rsi => {
             :value => html.at_css('.technicalIndicatorsTbl #pair_0 > td:nth-child(2)').text,
             :action => html.at_css('.technicalIndicatorsTbl #pair_0 > td:nth-child(3)').text
@@ -152,4 +159,4 @@ class MarketwatchService
 
     result
   end
-end
+  end

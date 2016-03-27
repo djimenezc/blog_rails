@@ -6,7 +6,7 @@ require 'open-uri'
 require 'mechanize'
 require 'screencap'
 
-describe MarketwatchService do
+describe ScreenScrapperService do
 
   it 'Read walmart title after a search' do
 
@@ -119,6 +119,6 @@ describe MarketwatchService do
                      .fetch(:output => TMP_DIRECTORY + 'given_element.jpg', :div => 'img.image')
 
     screenshot.should_not be_nil
-    FastImage.size(screenshot)[0].should == 140
+    FastImage.size(screenshot)[0].should == 1024
   end
 end
