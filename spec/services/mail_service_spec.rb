@@ -17,10 +17,10 @@ describe MailService do
   #   mail_service.send_email @mail, 'smtp'
   # end
 
-  it 'Send email through mailgum API' do
-
-    @mail.subject = 'API test'
-    mail_service.send_email @mail, 'api'
-  end
+  # it 'Send email through mailgum API' do
+  #
+  #   @mail.subject = 'API test'
+  #   mail_service.send_email @mail, 'api'
+  # end
 
 end
