@@ -119,6 +119,6 @@ describe ScreenScrapperService do
                      .fetch(:output => TMP_DIRECTORY + 'given_element.jpg', :div => 'img.image')
 
     screenshot.should_not be_nil
-    FastImage.size(screenshot)[0].should == 1024
+    FastImage.size(screenshot)[0].should == 140
   end
 end
