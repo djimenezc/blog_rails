@@ -68,7 +68,7 @@ group :development, :test, :development_postgres do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  gem 'database_cleaner'
+  gem 'database_cleaner', '~> 1.5.1'
 
   gem 'turn', '0.8.3', :require => false
   gem 'shoulda', '3.5.0'

@@ -46,5 +46,5 @@ Rails.application.configure do
   puts 'Including livereload'
 
   Mongoid.logger.level = Logger::DEBUG
-  Moped.logger.level = Logger::DEBUG
+  # Moped.logger.level = Logger::DEBUG
 end

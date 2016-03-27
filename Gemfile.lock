@@ -86,7 +86,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1)
-    database_cleaner (1.4.1)
+    database_cleaner (1.5.1)
     debug_inspector (0.0.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -518,7 +518,7 @@ DEPENDENCIES
   bootstrap-sass
   brakeman (= 2.6.2)
   coffee-rails (~> 4.1.0)
-  database_cleaner
+  database_cleaner (~> 1.5.1)
   devise
   execjs
   factory_girl_rails (= 4.5.0)

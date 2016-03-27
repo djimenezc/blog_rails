@@ -78,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   Mongoid.logger.level = Logger::INFO
-  Moped.logger.level = Logger::INFO
+  # Moped.logger.level = Logger::INFO
 end
