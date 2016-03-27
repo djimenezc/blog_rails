@@ -41,5 +41,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   Mongoid.logger.level = Logger::DEBUG
-  Moped.logger.level = Logger::DEBUG
+  # Moped.logger.level = Logger::DEBUG
 end

@@ -49,7 +49,7 @@ gem 'therubyracer', :platforms => :ruby
 
 gem 'redcarpet', '~> 3.1.2'
 
-gem 'mongoid', '~> 4.0.0'
+gem 'mongoid', '~> 5.1.0'
 gem 'mail'
 
 # Use Unicorn as the app server
@@ -107,8 +107,4 @@ group :production do
   gem 'rails_12factor', '0.0.2'
   gem 'unicorn'
   gem 'newrelic_rpm'
-end
-
-platforms :ruby do
-  gem 'unicorn'
 end
