@@ -18,7 +18,9 @@ deploy:
   app: rails-blog-tutorial
   run:
     - rake db:schema:load
+    - echo "migrating"
     - rake db:migrate
+    - echo "Seeding"
     - rake db:seed
     - echo "Restarting"
     - restart
