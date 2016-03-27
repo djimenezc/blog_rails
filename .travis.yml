@@ -1,8 +1,8 @@
 language: ruby
 rvm:
 - 2.1.5
-bundler_args: "--without production"
-bundler_args: --retry 3
+bundler_args: "--without production --retry 3"
+#bundler_args:
 before_install:
   travis_retry bundle install;
   bundle exec rake db:schema:load;
@@ -20,6 +20,7 @@ deploy:
     - rake db:schema:load
     - rake db:migrate
     - rake db:seed
+    - echo "Restarting"
     - restart
   api_key:
     secure: PTl4SeqAGAOl3NJD0MT11yg+pEkmHtwj0qirRdlNNJ08AgF6lThGe6N+dH3l3JcJRKjlp2Tgt3BtTyKlbejrHuR3QYqswgN5rbrThYVO2yOnteR4VcGso2NiPlIlWTTQb3+QqgMEgwgukOLQgan624DeD2Yt4C4cX+uxV4jQt2Q=
