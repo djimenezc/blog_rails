@@ -10,7 +10,7 @@ describe ScreenScrapperService do
 
   it 'Read walmart title after a search' do
 
-    url = 'http://www.walmart.com/search/search-ng.do?search_constraint=0&ic=48_0&search_query=Batman&Find.x=0&Find.y=0&Find=Find'
+    url = 'https://www.walmart.com/search/search-ng.do?search_constraint=0&ic=48_0&search_query=Batman&Find.x=0&Find.y=0&Find=Find'
     doc = Nokogiri::HTML(open(url))
 
     puts "Title: #{doc.at_css('title').text}"
@@ -20,7 +20,7 @@ describe ScreenScrapperService do
 
   it 'Get walmart item for batman search' do
 
-    url = 'http://www.walmart.com/search/search-ng.do?search_constraint=0&ic=48_0&search_query=Batman&Find.x=0&Find.y=0&Find=Find'
+    url = 'https://www.walmart.com/search/search-ng.do?search_constraint=0&ic=48_0&search_query=Batman&Find.x=0&Find.y=0&Find=Find'
 
     doc = Nokogiri::HTML(open(url))
     doc.css('.item').each do |item|
