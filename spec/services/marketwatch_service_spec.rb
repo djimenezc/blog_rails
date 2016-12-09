@@ -11,6 +11,9 @@ describe MarketwatchService do
     data.should_not be_nil
     data.length.should eq 4
     data[:indices].length.should eq 8
+    data[:forex].length.should eq 8
+    data[:commodities].length.should eq 8
+    data[:bonds].length.should eq 8
   end
 
   it 'Get indices detail' do

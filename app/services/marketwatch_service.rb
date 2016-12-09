@@ -21,7 +21,7 @@ class MarketwatchService
     data[:indices]= get_investing_quotes(html, '#QBS_2_inner' + row_selector)
     data[:forex]= get_investing_quotes(html, '#QBS_1_inner'+ row_selector)
     data[:commodities]= get_investing_quotes(html, '#QBS_3_inner'+ row_selector)
-    data[:bonds]= get_investing_quotes(html, '#QBS_4_inner'+ row_selector)
+    data[:bonds]= get_investing_quotes(html, '#QBS_5_inner'+ row_selector)
 
     data
   end

@@ -27,7 +27,9 @@
                     <td class="marketwatch-cell-text"><%= key %></td>
                     <td class="marketwatch-cell-text"><%= market[:price] %></td>
                     <td class="marketwatch-cell-text"><%= market[:pips_change] %></td>
-                    <td class="marketwatch-cell-text semaphore-<%= market[:price_semaphore] %>"><%= market[:percentage_chg] %></td>
+                    <td class="marketwatch-cell-text semaphore-<%= market[:price_semaphore] %>">
+                      <%= market[:percentage_chg] %>
+                    </td>
                   </tr>
               <% end %>
 
