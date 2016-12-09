@@ -4,10 +4,10 @@ rvm:
 bundler_args: "--without production --retry 3"
 #bundler_args:
 before_install:
-  apt-get install graphicsmagick
-  travis_retry bundle install;
-  bundle exec rake db:schema:load;
-  bundle exec rake db:migrate
+  - apt-get install graphicsmagick;
+  - travis_retry bundle install;
+  - bundle exec rake db:schema:load;
+  - bundle exec rake db:migrate
 
 #env: DB_MONGO=ds061601.mongolab.com:61601
 #     USERNAME_MONGO=test
@@ -34,3 +34,10 @@ cache:
 notifications:
   email:
     - david.jimenez19@gmail.com
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
