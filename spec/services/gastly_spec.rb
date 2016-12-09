@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'Gastly'
+require 'gastly'
 require 'graphicsmagick'
 
 describe ScreenScrapperService do

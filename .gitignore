@@ -30,3 +30,4 @@ chef/tmp
 chef/Cheffile.lock
 .idea
 .vagrant
+/mkmf.log
