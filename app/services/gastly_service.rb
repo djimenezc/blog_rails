@@ -1,5 +1,6 @@
 class GastlyService
 
+  FILE_EXTENSION = 'png'
 
   def get_nl_nh
 
@@ -10,12 +11,18 @@ class GastlyService
     screenshot.browser_width = 1280 # Default: 1440px
     screenshot.browser_height = 780 # Default: 900px
     screenshot.timeout = 1000 # Default: 0 seconds
-    screenshot.cookies = { user_id: 1, auth_token: 'abcd' } # If you need
+    screenshot.cookies = {user_id: 1, auth_token: 'abcd'} # If you need
     screenshot.phantomjs_options = '--ignore-ssl-errors=true'
     image = screenshot.capture
 
+    save_image_tmp_folder image, 'stockcharts.com-nh_nl'
+  end
+
+  def save_image_tmp_folder(image, file_name)
+
     image.format('png')
-    # image.save(TMP_DIRECTORY + 'stockcharts.com-ushl.png')
+    file_path = Rails.root.join('public/files', "#{file_name}."+FILE_EXTENSION)
+    image.save(file_path)
 
   end
 end
