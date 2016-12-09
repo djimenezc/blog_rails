@@ -4,6 +4,7 @@ rvm:
 bundler_args: "--without production --retry 3"
 #bundler_args:
 before_install:
+  - mkdir /home/travis/build/djimenezc/blog_rails/tmp/
   - sudo apt-get install graphicsmagick;
   - travis_retry bundle install;
   - bundle exec rake db:schema:load;
@@ -18,7 +19,6 @@ deploy:
   provider: heroku
   app: rails-blog-tutorial
   run:
-    - mkdir /home/travis/build/djimenezc/blog_rails/tmp/
     - rake db:schema:load
     - echo "migrating"
     - rake db:migrate
