@@ -317,7 +317,7 @@ GEM
       cocaine (~> 0.5.3)
       mime-types
     pg (0.17.1)
-    phantomjs (1.9.8.0)
+    phantomjs (2.1.1.0)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
     pry (0.9.12.6)
@@ -410,7 +410,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
-    screencap (0.1.1)
+    screencap (0.1.2)
       phantomjs
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
@@ -546,7 +546,7 @@ DEPENDENCIES
   rest-client
   rspec-rails (= 2.14.0)
   sass-rails (~> 5.0)
-  screencap
+  screencap (= 0.1.2)
   sdoc (~> 0.4.0)
   shoulda (= 3.5.0)
   simple_form

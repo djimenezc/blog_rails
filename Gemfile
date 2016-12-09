@@ -41,7 +41,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'nokogiri'
 gem 'mechanize'
-gem 'screencap'
+gem 'screencap', '0.1.2'
 gem 'fastimage'
 
 gem 'execjs'
