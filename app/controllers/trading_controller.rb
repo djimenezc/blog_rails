@@ -21,7 +21,7 @@ class TradingController < ApplicationController
     impact = params[:impact_levels].nil? ? [InvestingImpactCodes.get_codes[:HIGH_IMPACT][:text]] : params[:impact_levels]
     cal_type = time_frame.include?('thisWeek') || time_frame.include?('nextWeek') ||time_frame.include?('lastWeek') ? 'week' : 'day'
 
-    unless params[:timeFrame].nil? then
+    unless params[:timeFrame].nil?
       time_frame = params[:timeFrame]
     end
 
@@ -46,7 +46,6 @@ class TradingController < ApplicationController
 
     @market_snapshot = MarketSnapshot.new
     @market_snapshot.name = 'marketwatch.com'
-    @market_snapshot.quotes = @marketwatch_service.get_marketwatch_data
     @market_snapshot.investing = @marketwatch_service.get_investing_data
     @market_snapshot.indices = @marketwatch_service.get_indices_detail
   end

@@ -12,7 +12,7 @@ class MarketController < ApplicationController
     @market_snapshot = MarketSnapshot.new
 
     @market_snapshot.name = 'marketwatch.com'
-    @market_snapshot.quotes = @marketwatch_service.get_marketwatch_data
+    @market_snapshot.quotes = @marketwatch_service.get_investing_data
 
     @market_snapshot.save!
 

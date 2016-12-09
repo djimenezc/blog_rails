@@ -2,39 +2,9 @@
 
 <div id="data_grid">
 
-  <table style="border-color: white; width: 100%">
-    <caption>Market data from <%= @market_snapshot.name %> at <%= @time %></caption>
-
-    <% @market_snapshot.quotes.each do |key, market| %>
-        <tr>
-          <td class="marketwatch-product-cell" style="">
-            <%= key %>
-          </td>
-          <td style="width: 80%;">
-            <table style="border-color: white; width: 100%">
-              <% if key == :us %>
-                  <th class="marketwatch-header-text">Market</th>
-                  <th class="marketwatch-header-text">Price</th>
-                  <th class="marketwatch-header-text">Pips</th>
-                  <th class="marketwatch-header-text">Percentage</th>
-              <% end %>
-              <% market.each do |key, market| %>
-                  <tr>
-                    <td class="marketwatch-cell-text"><%= key %></td>
-                    <td class="marketwatch-cell-text"><%= market[:price] %></td>
-                    <td class="marketwatch-cell-text"><%= market[:pips_change] %></td>
-                    <td class="marketwatch-cell-text semaphore-<%= market[:price_semaphore] %>"><%= market[:percentage_chg] %></td>
-                  </tr>
-              <% end %>
-
-            </table>
-          </td>
-        </tr>
-    <% end %>
-
-  </table>
-
   <h3 style="text-align: center;">Investing.com</h3>
+
+  <a href="#" class="export">export</a>​
 
   <table style="border-color: white; width: 100%">
     <caption>Market data from investing at <%= @time %></caption>
