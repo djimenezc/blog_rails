@@ -4,7 +4,7 @@ rvm:
 bundler_args: "--without production --retry 3"
 #bundler_args:
 before_install:
-  sudo apt-get install graphicsmagick
+  apt-get install graphicsmagick
   travis_retry bundle install;
   bundle exec rake db:schema:load;
   bundle exec rake db:migrate
