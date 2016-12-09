@@ -20,9 +20,9 @@ class GastlyService
 
   def save_image_tmp_folder(image, file_name)
 
-    image.format('png')
     file_path = Rails.root.join('public/files', "#{file_name}."+FILE_EXTENSION)
+    File.delete file_path
+    image.format(FILE_EXTENSION)
     image.save(file_path)
-
   end
 end
