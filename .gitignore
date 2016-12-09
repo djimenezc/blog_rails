@@ -31,3 +31,5 @@ chef/Cheffile.lock
 .idea
 .vagrant
 /mkmf.log
+
+/public/files/*
