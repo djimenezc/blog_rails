@@ -124,7 +124,7 @@ class MarketwatchService
 
   def get_index_quote(html)
 
-    market_name = html.at_css('.headerWithInfoBox').text
+    market_name = html.at_css('.instrumentHead > h1').text
     market_snapshot = html.css('#quotes_summary_current_data .inlineblock > span')
 
     pips_change = market_snapshot[1].text.to_s.gsub(',', '.').to_f
@@ -138,6 +138,8 @@ class MarketwatchService
     quotes_summary_secondary = html.at_css('#quotes_summary_secondary_data')
     moving_avg_span = analysis_table.at_css('.summaryTableLine:nth-child(2)').at_css('span:nth-child(2)')
     technical_indicator_span = analysis_table.at_css('.summaryTableLine:nth-child(3)').at_css('span:nth-child(2)')
+    rsi_value = html.at_css('.technicalIndicatorsTbl tbody tr:nth-child(1) > td:nth-child(2)')
+    rsi_action = html.at_css('.technicalIndicatorsTbl tbody tr:nth-child(1) > td:nth-child(3)')
 
     {
         :market_name => market_name,
@@ -149,11 +151,11 @@ class MarketwatchService
         :open => quotes_summary_secondary.at_css('ul > li:nth-child(2) > span:nth-child(2)').text,
         :day_range => quotes_summary_secondary.at_css('ul > li:nth-child(3) > span:nth-child(2)').text,
         :summary => analysis_table.at_css('.summary > span').text,
-        :moving_average => moving_avg_span.at_css('span').text,
-        :technical_indicator => technical_indicator_span.at_css('span').text,
+        :moving_average => moving_avg_span.text,
+        :technical_indicator => technical_indicator_span.text,
         :rsi => {
-            :value => html.at_css('.technicalIndicatorsTbl #pair_0 > td:nth-child(2)').text,
-            :action => html.at_css('.technicalIndicatorsTbl #pair_0 > td:nth-child(3)').text
+            :value => rsi_value.text,
+            :action => rsi_action.text
         },
     }
 
