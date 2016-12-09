@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'trading/calendar'
   get 'trading/weekly_calendar'
   get 'trading/marketwatch'
+  get 'trading/screen_scrapper'
 
   get 'welcome/index'
 

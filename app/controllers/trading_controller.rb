@@ -40,6 +40,12 @@ class TradingController < ApplicationController
 
   end
 
+  def screen_scrapper
+
+    # authorize User
+
+  end
+
   def marketwatch
 
     set_time_parameter

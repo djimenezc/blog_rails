@@ -12,10 +12,13 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trading <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><%= link_to 'Trading', trading_index_path %></li>
+          <li role="separator" class="divider"></li>
           <li><%= link_to 'Calendar', trading_calendar_path %></li>
           <li><%= link_to 'Weekly calendar', trading_weekly_calendar_path %></li>
           <li role="separator" class="divider"></li>
           <li><%= link_to 'Marketwatch info', trading_marketwatch_path %></li>
+          <li role="separator" class="divider"></li>
+          <li><%= link_to 'ScreenScrapper', trading_screen_scrapper_path %></li>
         </ul>
       </li>
     </ul>
