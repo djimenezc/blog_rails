@@ -5,6 +5,7 @@ class TradingController < ApplicationController
 
     @marketwatch_service = MarketwatchService.new
     @calendar_service = CalendarService.new
+    @screen_scrapper_service = GastlyService.new
     super
   end
 
@@ -43,6 +44,7 @@ class TradingController < ApplicationController
   def screen_scrapper
 
     # authorize User
+   @screen_scrapper_service.get_nl_nh
 
   end
 
