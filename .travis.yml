@@ -18,6 +18,7 @@ deploy:
   provider: heroku
   app: rails-blog-tutorial
   run:
+    - mkdir /home/travis/build/djimenezc/blog_rails/tmp/
     - rake db:schema:load
     - echo "migrating"
     - rake db:migrate
