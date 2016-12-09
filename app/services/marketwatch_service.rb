@@ -78,7 +78,7 @@ class MarketwatchService
         market_name = item_title_node.at_css('a').text
 
         pips_change = item.at_css('.chg').text.to_s.gsub(',', '.').to_f
-        price_semaphore = if pips_change > 0 then
+        price_semaphore = if pips_change > 0
                             'green'
                           else
                             (pips_change == 0 ? 'transparent' : 'red')
@@ -105,7 +105,7 @@ class MarketwatchService
 
       market_name = item.at_css('a').text
       pips_change = item.at_css('.change').text.to_s.gsub(',', '.').to_f
-      price_semaphore = if pips_change > 0 then
+      price_semaphore = if pips_change > 0
                           'green'
                         else
                           (pips_change == 0 ? 'transparent' : 'red')
@@ -128,7 +128,7 @@ class MarketwatchService
     market_snapshot = html.css('#quotes_summary_current_data .inlineblock > span')
 
     pips_change = market_snapshot[1].text.to_s.gsub(',', '.').to_f
-    price_semaphore = if pips_change > 0 then
+    price_semaphore = if pips_change > 0
                         'green'
                       else
                         (pips_change == 0 ? 'transparent' : 'red')
@@ -139,7 +139,7 @@ class MarketwatchService
     moving_avg_span = analysis_table.at_css('.summaryTableLine:nth-child(2)').at_css('span:nth-child(2)')
     technical_indicator_span = analysis_table.at_css('.summaryTableLine:nth-child(3)').at_css('span:nth-child(2)')
 
-    result = {
+    {
         :market_name => market_name,
         :price => html.at_css('#last_last').text.to_s.gsub(',', '.').to_f,
         :pips_change => pips_change,
@@ -157,6 +157,5 @@ class MarketwatchService
         },
     }
 
-    result
   end
-  end
+end
