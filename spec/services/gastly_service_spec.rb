@@ -9,13 +9,9 @@ describe ScreenScrapperService do
     @screenshot_service = GastlyService.new
   end
 
-  def clean_images
-    system("rm #{TMP_DIRECTORY}/*.png")
-    system("rm #{TMP_DIRECTORY}/*.jpg")
-  end
-
-  before(:each) do
-    clean_images
+  before() do
+    # system("rm #{TMP_DIRECTORY}/*.png")
+    # system("rm #{TMP_DIRECTORY}/*.jpg")
   end
 
   it 'Take a page screenshot stockcharts.com-ushl.jpg service' do
@@ -28,6 +24,7 @@ describe ScreenScrapperService do
 
   it 'Take a page screenshot investing vix' do
 
+    Rails.logger.info 'Vix asdasdas'
     file_path = "#{TMP_DIRECTORY}/#{@screenshot_service.get_vix TMP_DIRECTORY}"
 
     assert File.exist? file_path

@@ -1,7 +1,7 @@
 require 'simplecov'
 require 'simplecov-rcov'
-require 'screencap'
-require 'fastimage'
+# require 'screencap'
+# require 'fastimage'
 require 'database_cleaner'
 
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
@@ -63,8 +63,8 @@ RSpec.configure do |config|
 
   config.before(:all) do
     unless ENV['KEEP_OUTPUT']
-      system("rm #{TMP_DIRECTORY}/*.png")
-      system("rm #{TMP_DIRECTORY}/*.jpg")
+      # system("rm #{TMP_DIRECTORY}/*.png")
+      # system("rm #{TMP_DIRECTORY}/*.jpg")
     end
   end
 

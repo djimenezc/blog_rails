@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
+ruby '2.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.7.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -21,16 +21,16 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'devise'
-gem 'pundit'
-gem 'upmin-admin'
+gem 'devise', '3.4.1'
+gem 'pundit', '0.3.0'
+gem 'upmin-admin', '0.1.01'
 gem 'simple_form'
 
 gem 'bootstrap-sass'
 
 gem 'paperclip', '~> 4.2'
 gem 'fog'
-gem 'aws-sdk', '~> 1.5.7'
+# gem 'aws-sdk', '~> 1.5.7'
 
 gem 'wysiwyg-rails'
 gem 'font-awesome-rails'
@@ -42,13 +42,13 @@ gem 'log4r'
 
 gem 'nokogiri'
 gem 'mechanize'
-gem 'screencap', '0.1.4'
-gem 'gastly'
+# gem 'screencap', '0.1.4'
+gem 'gastly', '1.0.1'
 gem 'graphicsmagick'
-gem 'fastimage'
+# gem 'fastimage'
 
-gem 'execjs'
-gem 'therubyracer', :platforms => :ruby
+# gem 'execjs'
+# gem 'therubyracer', :platforms => :ruby
 
 gem 'redcarpet', '~> 3.1.2'
 
@@ -87,9 +87,10 @@ group :development, :test, :development_postgres do
   gem 'rake'
   gem 'travis'
 
-  gem 'guard'
-  gem 'guard-livereload', require: false
-  gem 'rack-livereload'
+  # gem 'guard'
+  # gem 'guard-livereload', require: false
+  # gem 'rack-livereload'
+
 
   gem 'rest-client'
 
@@ -98,7 +99,7 @@ group :development, :test, :development_postgres do
 end
 
 group :development_postgres, :production do
-  gem 'pg', '0.17.1'
+  gem 'pg'
 end
 
 group :development, :test do
@@ -108,6 +109,6 @@ end
 
 group :production do
   gem 'rails_12factor', '0.0.2'
-  gem 'unicorn'
+  gem 'unicorn', '4.8.3'
   gem 'newrelic_rpm'
 end

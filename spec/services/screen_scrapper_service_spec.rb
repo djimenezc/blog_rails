@@ -4,7 +4,6 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 require 'mechanize'
-require 'screencap'
 
 describe ScreenScrapperService do
 

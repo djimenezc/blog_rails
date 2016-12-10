@@ -39,14 +39,14 @@ Vagrant.configure('2') do |config|
             }
         },
         'rbenv' => {
-            'global' => '2.1.5',
-            'rubies' => %w(2.1.5),
+            'global' => '2.3.3',
+            'rubies' => %w(2.3.3),
             'gems' => {
                 # '2.0.0-p247' => [
                 #     {'name' => 'bundler'},
                 #     {'name' => 'rake', 'options' => {'force' => true}}
                 # ],
-                '2.1.5' => [
+                '2.3.3' => [
                     {'name' => 'bundler'},
                     {'name' => 'rake'}
                 ]
