@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-  $('#article_html').editable inlineMode: false
-  return
+#TODO  Uncaught TypeError: $(...).editable is not a function
+#$ ->
+#  $('.edit').editable inlineMode: false
+#  return

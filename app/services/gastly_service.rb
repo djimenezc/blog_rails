@@ -1,7 +1,7 @@
 class GastlyService
 
   FILE_EXTENSION = 'png'
-  TIME_OUT = 1000
+  TIME_OUT = 2000
 
   def get_nl_nh (folder='public/files')
 
