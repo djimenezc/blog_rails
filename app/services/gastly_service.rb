@@ -22,9 +22,9 @@ class GastlyService
 
     file_path = Rails.root.join('public/files', "#{file_name}."+FILE_EXTENSION)
     File.delete file_path if File.exist?(file_path)
-    image.format(FILE_EXTENSION)
+    # image.format(FILE_EXTENSION)
     image.save(file_path)
 
-    "#{file_name}."+FILE_EXTENSION
+    "#{file_name}.#{FILE_EXTENSION}"
   end
 end
