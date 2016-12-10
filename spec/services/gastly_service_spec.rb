@@ -5,6 +5,34 @@ require 'graphicsmagick'
 
 describe ScreenScrapperService do
 
+  def initialize
+    @screenshot_service = GastlyService.new
+  end
+
+  def clean_images
+    system("rm #{TMP_DIRECTORY}/*.png")
+    system("rm #{TMP_DIRECTORY}/*.jpg")
+  end
+
+  before(:each) do
+    clean_images
+  end
+
+  it 'Take a page screenshot stockcharts.com-ushl.jpg service' do
+
+
+    file_path = "#{TMP_DIRECTORY}/#{@screenshot_service.get_nl_nh TMP_DIRECTORY}"
+
+    assert File.exist? file_path
+  end
+
+  it 'Take a page screenshot investing vix' do
+
+    file_path = "#{TMP_DIRECTORY}/#{@screenshot_service.get_vix TMP_DIRECTORY}"
+
+    assert File.exist? file_path
+  end
+
   it 'Take a page screenshot' do
 
     screenshot = Gastly.screenshot('http://google.com')
@@ -21,9 +49,11 @@ describe ScreenScrapperService do
     image.resize(width: 110, height: 110) # Creates a previews of web-page
     image.format('png')
     image.save(TMP_DIRECTORY + 'googleLogo.png')
+
+    assert File.exist? TMP_DIRECTORY + 'googleLogo.png'
   end
 
-  it 'Take a page screenshot stockcharts.com-ushl.jpg' do
+  it 'Take a page screenshot stockcharts.com-ushl.jpg example' do
 
     screenshot = Gastly.screenshot('http://stockcharts.com/h-sc/ui?s=$USHL5&p=D&yr=8&mn=0&dy=0&id=p27747499092')
     screenshot.selector = '.chartImg-container' # By default, the full screen is captured
@@ -35,7 +65,7 @@ describe ScreenScrapperService do
     image = screenshot.capture
 
     image.format('png')
-    image.save(TMP_DIRECTORY + 'stockcharts.com-ushl.png')
+    image.save(TMP_DIRECTORY + 'stockcharts.com-ushl2.png')
+    assert File.exist? TMP_DIRECTORY + 'stockcharts.com-ushl2.png'
   end
-
 end

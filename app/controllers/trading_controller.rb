@@ -44,6 +44,7 @@ class TradingController < ApplicationController
   def screen_scrapper
     # authorize User
     @nh_nl_path = "/files/#{@screen_scrapper_service.get_nl_nh}"
+    @vix_path = "/files/#{@screen_scrapper_service.get_vix}"
     set_time_parameter
   end
 
