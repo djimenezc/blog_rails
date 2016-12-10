@@ -5,7 +5,7 @@ require 'graphicsmagick'
 
 describe ScreenScrapperService do
 
-  def initialize
+  def initialize args
     @screenshot_service = GastlyService.new
   end
 

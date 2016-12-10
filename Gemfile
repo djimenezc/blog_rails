@@ -4,11 +4,11 @@ ruby '2.3.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -21,9 +21,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'devise', '3.4.1'
-gem 'pundit', '0.3.0'
-gem 'upmin-admin', '0.1.01'
+gem 'devise'
+gem 'pundit'
+gem 'upmin-admin'
 gem 'simple_form'
 
 gem 'bootstrap-sass'
@@ -36,7 +36,7 @@ gem 'wysiwyg-rails'
 gem 'font-awesome-rails'
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 gem 'log4r'
 
@@ -53,6 +53,7 @@ gem 'graphicsmagick'
 gem 'redcarpet', '~> 3.1.2'
 
 gem 'mongoid', '~> 5.1.0'
+gem 'kaminari-mongoid'
 gem 'mail'
 
 # Use Unicorn as the app server
@@ -65,17 +66,14 @@ group :development, :test, :development_postgres do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
   gem 'database_cleaner', '~> 1.5.1'
 
-  gem 'turn', '0.8.3', :require => false
-  gem 'shoulda', '3.5.0'
-  gem 'rspec-rails', '2.14.0'
+  gem 'turn', :require => false
+  gem 'shoulda'
+  gem 'rspec-rails'
   gem 'simplecov', '0.8.2', :require => false
   gem 'simplecov-rcov', '0.2.3'
   # gem 'nokogiri'
@@ -100,6 +98,11 @@ end
 
 group :development_postgres, :production do
   gem 'pg'
+end
+
+group :development do
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
 end
 
 group :development, :test do
