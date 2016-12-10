@@ -36,6 +36,8 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
+  config.infer_spec_type_from_file_location!
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -57,9 +59,9 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
 
-  config.include Devise::TestHelpers, :type => :controller
   config.extend ControllerMacros, :type => :controller
 
+  config.raise_errors_for_deprecations!
 
   # config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true

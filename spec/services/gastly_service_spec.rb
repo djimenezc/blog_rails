@@ -16,7 +16,6 @@ describe ScreenScrapperService do
 
   it 'Take a page screenshot stockcharts.com-ushl.jpg service' do
 
-
     file_path = "#{TMP_DIRECTORY}/#{@screenshot_service.get_nl_nh TMP_DIRECTORY}"
 
     assert File.exist? file_path

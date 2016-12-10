@@ -14,7 +14,7 @@ describe ScreenScrapperService do
 
     puts "Title: #{doc.at_css('title').text}"
 
-    doc.at_css('title').text.should eq 'Batman - Walmart.com'
+    expect(doc.at_css('title').text).to eq 'Batman - Walmart.com'
   end
 
   it 'Get walmart item for batman search' do
@@ -41,7 +41,7 @@ describe ScreenScrapperService do
       File.open('foo.png', 'wb') do |f|
         f.write(open(src).read)
       end
-    }.to raise_error
+    }.to raise_error NoMethodError
 
   end
 

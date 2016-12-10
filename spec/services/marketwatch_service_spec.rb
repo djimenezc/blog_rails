@@ -7,22 +7,20 @@ describe MarketwatchService do
   it 'Get investing quotes' do
 
     data = screen_scrapper_service.get_investing_data
-    data.should_not be_nil
-    data.should_not be_nil
-    data.length.should eq 4
-    data[:indices].length.should eq 8
-    data[:forex].length.should eq 8
-    data[:commodities].length.should eq 8
-    data[:bonds].length.should eq 8
+    expect(data).not_to eq(nil)
+    expect(data.length).to eq 4
+    expect(data[:indices].length).to eq 8
+    expect(data[:forex].length).to eq 8
+    expect(data[:commodities].length).to eq 8
+    expect(data[:bonds].length).to eq 8
   end
 
   it 'Get indices detail' do
 
     data = screen_scrapper_service.get_indices_detail
-    data.should_not be_nil
-    data.should_not be_nil
-    data.length.should eq 8
-    data[:sp500].length.should eq 12
-    data[:dow].length.should eq 12
+    expect(data).not_to eq(nil)
+    expect(data.length).to eq 8
+    expect(data[:sp500].length).to eq 12
+    expect(data[:dow].length).to eq 12
   end
 end

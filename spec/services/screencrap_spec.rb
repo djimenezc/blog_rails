@@ -12,17 +12,17 @@ describe ScreenScrapperService do
   #
   #   f = Screencap::Fetcher.new('http://google.com')
   #   screenshot = f.fetch(
-  #       :output => TMP_DIRECTORY + 'googleDotCom.jpg'
+  #       :output => TMP_DIRECTORY + 'googleDotCom2.jpg'
   #   )
   #
   #   screenshot.should_not be_nil
   # end
-
+  #
   # it 'Take a page screenshot of a specific element of a page' do
   #
   #   f = Screencap::Fetcher.new('http://stockcharts.com/h-sc/ui?s=$USHL5&p=D&yr=8&mn=0&dy=0&id=p27747499092')
   #   screenshot = f.fetch(
-  #       :output => TMP_DIRECTORY + 'stockcharts.com-ushl.jpg', # don't forget the extension!
+  #       :output => TMP_DIRECTORY + 'stockcharts.com-ushl3.jpg', # don't forget the extension!
   #       # optional:
   #       :div => '#chartImg', # selector for a specific element to take screenshot of
   #   # :width => 1024,
@@ -43,7 +43,7 @@ describe ScreenScrapperService do
   #
   #   screenshot.should_not be_nil
   # end
-
+  #
   # it 'captures a given element' do
   #   screenshot = Screencap::Fetcher.new('http://placehold.it')
   #                    .fetch(:output => TMP_DIRECTORY + 'given_element.jpg', :div => 'img.image')
