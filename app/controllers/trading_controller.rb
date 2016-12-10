@@ -42,10 +42,9 @@ class TradingController < ApplicationController
   end
 
   def screen_scrapper
-
     # authorize User
-   @screen_scrapper_service.get_nl_nh
-
+    @nh_nl_path = "/files/#{@screen_scrapper_service.get_nl_nh}"
+    set_time_parameter
   end
 
   def marketwatch
