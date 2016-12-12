@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'trading/marketwatch'
   get 'trading/screen_scrapper'
 
+  get '/trading', to: redirect('/trading/index')
+
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
