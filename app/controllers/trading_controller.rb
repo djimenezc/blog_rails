@@ -9,10 +9,6 @@ class TradingController < ApplicationController
     super
   end
 
-  def index
-
-  end
-
   def calendar
 
     # authorize User

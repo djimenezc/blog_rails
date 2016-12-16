@@ -1,7 +1,7 @@
 class GastlyService
 
   FILE_EXTENSION = 'png'
-  TIME_OUT = 2000
+  TIME_OUT = 100000
 
   def get_nl_nh (folder='public/files')
 
@@ -10,7 +10,11 @@ class GastlyService
     image = capture_image 'http://stockcharts.com/h-sc/ui?s=$USHL5&p=D&yr=8&mn=0&dy=0&id=p27747499092',
                           '.chartImg-container'
 
-    save_image_tmp_folder image, 'stockcharts.com-nh_nl', folder
+    Rails.logger.info('after capture')
+    file_name = save_image_tmp_folder image, 'stockcharts.com-nh_nl', folder
+    Rails.logger.info('after save')
+
+    file_name
   end
 
   def get_vix(folder='public/files')
@@ -32,7 +36,7 @@ class GastlyService
     screenshot.browser_width = 1280 # Default: 1440px
     screenshot.browser_height = 780 # Default: 900px
     screenshot.timeout = TIME_OUT # Default: 0 seconds
-    screenshot.cookies = {user_id: 1, auth_token: 'abcd'} # If you need
+    # screenshot.cookies = {user_id: 1, auth_token: 'abcd'} # If you need
     screenshot.phantomjs_options = '--ignore-ssl-errors=true'
 
     screenshot.capture
