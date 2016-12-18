@@ -39,6 +39,9 @@ Vagrant.configure('2') do |config|
     # chef.version = '12.10.40'
     chef.channel = 'stable'
 
+    # Add a recipe
+    chef.add_recipe 'main::default'
+
     chef.add_role 'rails-dev'
     chef.json = {
         'mysql' => {

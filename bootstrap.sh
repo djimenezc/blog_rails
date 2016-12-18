@@ -2,11 +2,11 @@
 
 echo "Executing bootstrap script"
 
-mkdir -p /tmp/vagrant-chef/cookbooks/nodes
-
-sudo apt-get update
-sudo apt-get autoremove
-yes | sudo apt-get upgrade
+#mkdir -p /tmp/vagrant-chef/cookbooks/nodes
+#
+#sudo apt-get update
+#sudo apt-get autoremove
+#yes | sudo apt-get upgrade
 #apt-get install -y apache2
 #if ! [ -L /var/www ]; then
 #  rm -rf /var/www

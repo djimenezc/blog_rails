@@ -25,7 +25,7 @@ Gemfile.lock
 public/system
 dist
 
-chef/cookbooks
+# chef/cookbooks
 chef/tmp
 chef/Cheffile.lock
 .idea
