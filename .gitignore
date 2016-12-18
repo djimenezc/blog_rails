@@ -33,3 +33,5 @@ chef/Cheffile.lock
 /mkmf.log
 
 /public/files/*
+
+./Gemfile.lock
