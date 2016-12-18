@@ -28,11 +28,13 @@ Vagrant.configure('2') do |config|
   # config.vm.provision :shell, :inline => 'gem install chef --version latest --verbose'
 
   # config.berkshelf.enabled = true
-  # config.berkshelf.berksfile_path = "./chef/cookbook"
+  # config.berkshelf.berksfile_path = './chef/cookbook'
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = %w(chef/cookbooks chef/site-cookbooks)
     chef.roles_path = [[:host, 'chef/roles']]
+    chef.data_bags_path = 'chef/data_bags'
+    chef.nodes_path = 'chef/nodes'
 
     # chef.version = '12.10.40'
     chef.channel = 'stable'
