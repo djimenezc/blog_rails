@@ -24,12 +24,18 @@ Vagrant.configure('2') do |config|
   #   s.path = "provision/setup.sh"
   # end
 
-  # config.omnibus.chef_version = :latest
+  config.omnibus.chef_version = :latest
   # config.vm.provision :shell, :inline => 'gem install chef --version latest --verbose'
+
+  # config.berkshelf.enabled = true
+  # config.berkshelf.berksfile_path = "./chef/cookbook"
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = %w(chef/cookbooks chef/site-cookbooks)
     chef.roles_path = [[:host, 'chef/roles']]
+
+    # chef.version = '12.10.40'
+    chef.channel = 'stable'
 
     chef.add_role 'rails-dev'
     chef.json = {
