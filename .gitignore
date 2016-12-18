@@ -20,7 +20,7 @@ atlassian-ide-plugin.xml
 
 /doc
 /coverage
-# Gemfile.lock
+Gemfile.lock
 
 public/system
 dist
@@ -35,3 +35,5 @@ chef/Cheffile.lock
 /public/files/*
 
 ./Gemfile.lock
+
+/*.log
