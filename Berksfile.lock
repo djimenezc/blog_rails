@@ -3,14 +3,18 @@ DEPENDENCIES
   apt
   build-essential
   git
+  libffi-dev
+    git: https://github.com/zchee/libffi-dev-cookbook.git
+    revision: d4f8a6f3102659eb0a6c824ab050f776a1a4da16
+  libmysqlclient
   main
     path: chef/site-cookbooks/main
   mysql
-  mysql_chef_gem
+  mysql2_chef_gem
   nodejs
   postgresql
-  rbenv
   ruby_build
+  ruby_rbenv
   sqlite
   vim
 
@@ -33,6 +37,13 @@ GRAPH
     yum-epel (>= 0.0.0)
   homebrew (2.1.2)
     build-essential (>= 2.1.2)
+  java (1.43.0)
+    apt (>= 0.0.0)
+    homebrew (>= 0.0.0)
+    windows (>= 0.0.0)
+  libffi-dev (1.0.0)
+  libmysqlclient (0.1.0)
+    apt (>= 0.0.0)
   main (0.1.0)
     apt (~> 2.9.2)
   mariadb (0.3.3)
@@ -43,10 +54,10 @@ GRAPH
     compat_resource (>= 0.0.0)
     seven_zip (>= 0.0.0)
   mysql (8.2.0)
-  mysql_chef_gem (4.0.0)
+  mysql2_chef_gem (1.1.0)
     build-essential (>= 0.0.0)
     mariadb (>= 0.0.0)
-    mysql (>= 6.0.0)
+    mysql (>= 6.0)
   nodejs (3.0.0)
     apt (>= 2.9.1)
     ark (>= 0.0.0)
@@ -60,13 +71,11 @@ GRAPH
     apt (>= 1.9.0)
     build-essential (>= 2.0.0)
     openssl (>= 4.0)
-  rbenv (1.7.1)
-    apt (>= 0.0.0)
-    build-essential (>= 0.0.0)
-    git (>= 0.0.0)
-    ohai (>= 1.1)
   ruby_build (1.0.0)
     yum-epel (>= 0.0.0)
+  ruby_rbenv (1.1.0)
+    java (> 1.4.0)
+    ruby_build (>= 0.0.0)
   seven_zip (2.0.2)
     windows (>= 1.2.2)
   sqlite (1.1.3)

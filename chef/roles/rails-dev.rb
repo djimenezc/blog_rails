@@ -22,8 +22,8 @@ run_list(
     'recipe[postgresql::server]',
     'recipe[nodejs::nodejs_from_binary]',
     'recipe[ruby_build]',
-    'recipe[rbenv::system]',
-    'recipe[rbenv::vagrant]',
+    # 'recipe[rbenv::system]',
+    # 'recipe[ruby_rbenv::vagrant]',
     'recipe[database]',
     'recipe[postinstall]'
 )

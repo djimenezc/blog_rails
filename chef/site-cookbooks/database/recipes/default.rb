@@ -7,7 +7,7 @@ instance_name = 'default'
 
 # MySQL
 mysql_connection_info = {
-    :host => "localhost",
+    :host => 'localhost',
     :username => 'root',
     :password => node['mysql']['server_root_password'],
     :socket => "/var/run/mysql-#{instance_name}/mysqld.sock"
