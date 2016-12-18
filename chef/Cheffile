@@ -6,6 +6,7 @@ require 'certified'
 
 site 'http://community.opscode.com/api/v1'
 
+cookbook 'apache'
 cookbook 'apt'
 cookbook 'git'
 cookbook 'sqlite'
