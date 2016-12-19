@@ -6,16 +6,30 @@ provisioner:
   name: chef_solo
 
 platforms:
-  - name: ubuntu-14.04
-  - name: centos-7.2
+  - name: ubuntu-16.04
+    driver:
+          vagrantfile_erb: Vagrantfile.erb
+
+#  - name: ubuntu-14.04
+#  - name: centos-7.2
 
 suites:
   - name: default
     run_list:
-    attributes:
-  - name: client
-    run_list:
-      - recipe[postgresql::client]
-  - name: server
-    run_list:
+#      - recipe[git::default]
+      - recipe[postgresql::ruby]
       - recipe[postgresql::server]
+      - recipe[nodejs::nodejs_from_binary]
+      - recipe[ruby_build]
+      - recipe[rbenv::system]
+      - recipe[rbenv::vagrant]
+      - recipe[database::install_mysql]
+      - recipe[database::default]
+      - recipe[postinstall]
+    attributes:
+#  - name: client
+#    run_list:
+#      - recipe[postgresql::client]
+#  - name: server
+#    run_list:
+#      - recipe[postgresql::server]
