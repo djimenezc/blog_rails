@@ -76,7 +76,6 @@ Vagrant.configure('2') do |config|
     chef.add_recipe 'ruby_build'
     chef.add_recipe 'vim'
     chef.add_recipe 'libmysqlclient'
-    chef.add_recipe 'ruby_rbenv::user'
 
     chef.add_role 'rails-dev'
 

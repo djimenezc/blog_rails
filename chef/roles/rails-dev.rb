@@ -22,13 +22,13 @@ run_list(
     'recipe[postgresql::server]',
     'recipe[nodejs::nodejs_from_binary]',
     'recipe[ruby_build]',
-    # 'recipe[rbenv::system]',
-    # 'recipe[ruby_rbenv::vagrant]',
-    'recipe[database]',
+    'recipe[rbenv::system]',
+    'recipe[rbenv::vagrant]',
+    # 'recipe[database]',
     'recipe[postinstall]'
 )
 default_attributes(
-    'build_essential' => {
-        'compiletime' => true
+    :build_essential => {
+        :compiletime => true
     }
 )
