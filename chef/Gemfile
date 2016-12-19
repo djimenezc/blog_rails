@@ -1,0 +1,8 @@
+source 'http://rubygems.org'
+ruby '2.3.3'
+
+gem 'vagrant-wrapper'
+gem 'berkshelf'
+gem 'test-kitchen'
+gem 'kitchen-vagrant'
+gem 'test-kitchen'
