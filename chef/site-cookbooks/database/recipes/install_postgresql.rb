@@ -1,0 +1,1 @@
+puts 'configuring mysql'

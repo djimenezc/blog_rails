@@ -1,5 +1,5 @@
 
-version = '5.5'
+version = '5.7'
 # node['mysql']['server_root_password'] = 'change me'
 
 # node.default['mysql'] = {
@@ -17,7 +17,7 @@ mysql_config 'default' do
   instance 'default'
   source 'my.conf.erb'
   # notifies :restart, 'mysql_service[default]'
-  version '5.5'
+  version version
   action :create
 end
 

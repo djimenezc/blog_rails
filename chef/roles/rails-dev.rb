@@ -24,7 +24,8 @@ run_list(
     'recipe[ruby_build]',
     'recipe[rbenv::system]',
     'recipe[rbenv::vagrant]',
-    # 'recipe[database]',
+    # 'recipe[database::install_mysql]',
+    'recipe[database::default]',
     'recipe[postinstall]'
 )
 default_attributes(
