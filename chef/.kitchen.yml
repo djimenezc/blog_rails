@@ -21,17 +21,17 @@ platforms:
 suites:
   - name: default
     run_list:
-#      - recipe[apt]
-#      - recipe[git::default]
-#      - recipe[build-essential]
-#      - recipe[learn_chef_apache2::default]
-#      - recipe[nodejs::nodejs_from_binary]
-#      - recipe[ruby_build]
-#      - recipe[rbenv::system]
-#      - recipe[rbenv::vagrant]
-#      - recipe[main]
+      - recipe[apt]
+      - recipe[git::default]
+      - recipe[build-essential]
+      - recipe[learn_chef_apache2::default]
+      - recipe[nodejs::nodejs_from_binary]
+      - recipe[ruby_build]
+      - recipe[rbenv::system]
+      - recipe[rbenv::vagrant]
+      - recipe[main]
       - recipe[database2]
-#      - recipe[postinstall]
+      - recipe[postinstall]
     attributes:
     verifier:
           inspec_tests:
