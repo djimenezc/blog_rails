@@ -41,3 +41,4 @@ chef/Cheffile.lock
 /chef/site-cookbooks/main/*.log
 /chef/nodes/*.json
 Berksfile.lock
+/chef/.kitchen/*
