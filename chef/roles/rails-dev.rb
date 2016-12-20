@@ -13,7 +13,7 @@ run_list(
     'recipe[apt]',
     'recipe[git]',
     'recipe[sqlite]',
-    'recipe[mysql_config]',
+    # 'recipe[mysql_config]',
     'recipe[vim]',
     # 'recipe[mysql::client]',
     # 'recipe[mysql::ruby]',
@@ -24,8 +24,7 @@ run_list(
     'recipe[ruby_build]',
     'recipe[rbenv::system]',
     'recipe[rbenv::vagrant]',
-    # 'recipe[database::install_mysql]',
-    'recipe[database::default]',
+    'recipe[database2::default]',
     'recipe[postinstall]'
 )
 default_attributes(
