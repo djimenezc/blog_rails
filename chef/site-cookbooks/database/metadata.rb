@@ -6,3 +6,5 @@ description      'Installs/Configures main'
 long_description 'Installs/Configures main'
 version          '0.1.0'
 default          ''
+
+depends           'mysql'

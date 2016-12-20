@@ -1,1 +1,2 @@
-puts 'configuring mysql'
+log 'configuring mysql'
+

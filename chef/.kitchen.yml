@@ -26,14 +26,15 @@ suites:
       - recipe[build-essential]
       - recipe[postgresql::ruby]
       - recipe[my_postgresql]
+      - recipe[learn_chef_apache2::default]
       - recipe[nodejs::nodejs_from_binary]
       - recipe[ruby_build]
       - recipe[rbenv::system]
       - recipe[rbenv::vagrant]
 
-#      - recipe[database::install_mysql]
 #      - recipe[database::default]
-      - recipe[postinstall]
+#      - recipe[database::install_mysql]
+#      - recipe[postinstall]
     attributes:
 #  - name: client
 #    run_list:
