@@ -1,14 +1,18 @@
 ---
 driver:
   name: vagrant
+  customize:
+    cableconnected1: 'on'
 
 provisioner:
   name: chef_solo
 
 platforms:
   - name: ubuntu-16.04
-    driver:
-          vagrantfile_erb: Vagrantfile.erb
+#    driver:
+#          vagrantfile_erb: Vagrantfile.erb
+#          customize:
+#              cableconnected1: 'on'
 
 #  - name: ubuntu-14.04
 #  - name: centos-7.2
