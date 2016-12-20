@@ -73,25 +73,25 @@ Vagrant.configure('2') do |config|
     chef.channel = 'stable'
 
     # Add a recipe
-    chef.add_recipe 'main::default'
-    chef.add_recipe 'libffi-dev'
-    chef.add_recipe 'nodejs'
-    chef.add_recipe 'ruby_build'
-    chef.add_recipe 'vim'
-    chef.add_recipe 'libmysqlclient'
-    chef.add_recipe 'build-essential'
+    # chef.add_recipe 'main::default'
+    # chef.add_recipe 'libffi-dev'
+    # chef.add_recipe 'nodejs'
+    # chef.add_recipe 'ruby_build'
+    # chef.add_recipe 'vim'
+    # chef.add_recipe 'libmysqlclient'
+    # chef.add_recipe 'build-essential'
 
     chef.add_role 'rails-dev'
 
     chef.json = {
         :mysql => {
-            :server_root_password => '',
-            :server_debian_password => '',
-            :server_repl_password => ''
+            :server_root_password => '1234',
+            :server_debian_password => '1234',
+            :server_repl_password => '1234'
         },
         :postgresql => {
             :password => {
-                :postgres => ''
+                :postgres => '1234'
             }
         },
         :rbenv => {
@@ -99,8 +99,8 @@ Vagrant.configure('2') do |config|
             :rubies => %w(2.3.3),
             :gems => {
                 '2.3.3' => [
-                    {'name' => 'bundler'},
-                    {'name' => 'rake'}
+                    {:name => 'bundler'},
+                    {:name => 'rake'}
                 ]
             }
         },

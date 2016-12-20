@@ -1,7 +1,4 @@
-# Setup database servers
-#
-# 1. Setup MySQL and PostgreSQL
-# 2. Create a rails user with a blank password with full control
+log 'configuring mysql'
 
 instance_name = 'default'
 
@@ -35,25 +32,5 @@ end
 
 mysql_database 'ruby_test' do
   connection mysql_connection_info
-  action :create
-end
-
-# PostgreSQL
-template "#{node[:postgresql][:dir]}/pg_hba.conf" do
-  source 'pg_hba.conf.erb'
-  notifies :restart, 'service[postgresql]', :immediately
-end
-
-postgresql_connection_info = {
-    :host => 'localhost',
-    :password => node['postgresql']['password']['postgres']
-}
-
-postgresql_database_user 'rails' do
-  connection postgresql_connection_info
-  password ''
-  # role_attributes :superuser => true, :createdb => true
-  privileges [:all]
-  action :grant
   action :create
 end

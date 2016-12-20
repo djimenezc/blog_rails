@@ -36,6 +36,7 @@ chef/Cheffile.lock
 
 ./Gemfile.lock
 
+.chef/*
 *.log
 /chef/*.log
 /chef/site-cookbooks/main/*.log

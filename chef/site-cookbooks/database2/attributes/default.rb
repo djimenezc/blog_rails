@@ -1,3 +1,5 @@
+default['mysql']['server_root_password'] = '1234'
+
 default['postgresql']['password']['postgres'] = "1234"
 default['postgresql']['config']['ssl'] = false
 default['postgresql']['config']['listen_addresses'] = "*"

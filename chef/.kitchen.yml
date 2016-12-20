@@ -21,24 +21,18 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[apt]
-      - recipe[git::default]
-      - recipe[build-essential]
-      - recipe[postgresql::ruby]
-      - recipe[my_postgresql]
-      - recipe[learn_chef_apache2::default]
-      - recipe[nodejs::nodejs_from_binary]
-      - recipe[ruby_build]
-      - recipe[rbenv::system]
-      - recipe[rbenv::vagrant]
-
-#      - recipe[database::default]
-#      - recipe[database::install_mysql]
+#      - recipe[apt]
+#      - recipe[git::default]
+#      - recipe[build-essential]
+#      - recipe[learn_chef_apache2::default]
+#      - recipe[nodejs::nodejs_from_binary]
+#      - recipe[ruby_build]
+#      - recipe[rbenv::system]
+#      - recipe[rbenv::vagrant]
+#      - recipe[main]
+      - recipe[database2]
 #      - recipe[postinstall]
     attributes:
-#  - name: client
-#    run_list:
-#      - recipe[postgresql::client]
-#  - name: server
-#    run_list:
-#      - recipe[postgresql::server]
+    verifier:
+          inspec_tests:
+            - test/recipes
