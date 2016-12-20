@@ -21,16 +21,20 @@ platforms:
 suites:
   - name: default
     run_list:
-#      - recipe[git::default]
+      - recipe[apt]
+      - recipe[git::default]
+      - recipe[build-essential]
       - recipe[postgresql::ruby]
-      - recipe[postgresql::server]
-      - recipe[nodejs::nodejs_from_binary]
-      - recipe[ruby_build]
-      - recipe[rbenv::system]
-      - recipe[rbenv::vagrant]
-      - recipe[database::install_mysql]
-      - recipe[database::default]
-      - recipe[postinstall]
+      - recipe[my_postgresql]
+#      - recipe[postgresql::server]
+#      - recipe[nodejs::nodejs_from_binary]
+#      - recipe[ruby_build]
+#      - recipe[rbenv::system]
+#      - recipe[rbenv::vagrant]
+
+#      - recipe[database::install_mysql]
+#      - recipe[database::default]
+#      - recipe[postinstall]
     attributes:
 #  - name: client
 #    run_list:

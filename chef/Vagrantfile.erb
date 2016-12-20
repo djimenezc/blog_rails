@@ -55,4 +55,33 @@ c.vm.provider :<%= config[:provider] %> do |p|
 <% end %>
 end
 
+c.vm.provision :chef_solo do |chef|
+
+  chef.json = {
+    :mysql => {
+      :server_root_password => '',
+      :server_debian_password => '',
+      :server_repl_password => ''
+    },
+    :postgresql => {
+      :password => {
+        :postgres => 'foo'
+      }
+    },
+    :rbenv => {
+      :global => '2.3.3',
+      :rubies => %w(2.3.3),
+      :gems => {
+        '2.3.3' => [
+          {'name' => 'bundler'},
+          {'name' => 'rake'}
+        ]
+      }
+    },
+    :build_essential => {
+      :compiletime => true
+     }
+  }
+end
+
 end
